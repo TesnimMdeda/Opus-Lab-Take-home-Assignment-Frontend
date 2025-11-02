@@ -26,8 +26,6 @@ export function calculateReadingTime(text: string): number {
   return Math.ceil(wordCount / wordsPerMinute);
 }
 
-export const STRAPI_URL =
-  process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337";
-export const STRAPI_TOKEN = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+export const STRAPI_URL = process.env.STRAPI_API_URL || "http://localhost:1337";
+export const STRAPI_TOKEN = process.env.STRAPI_API_TOKEN;
+export const SITE_URL = process.env.SITE_URL || "http://localhost:3000";
