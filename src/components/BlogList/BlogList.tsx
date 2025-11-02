@@ -49,11 +49,14 @@ export function BlogList({ posts, calculateReadingTime }: BlogListProps) {
               <p className="text-sm text-muted-foreground mb-4 flex-1">
                 {post?.author?.name} •{" "}
                 {post?.published_date
-                  ? new Date(post.published_date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })
+                  ? new Date(post.published_date as string).toLocaleDateString(
+                      "en-US",
+                      {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      }
+                    )
                   : "No date"}
               </p>
               <div className="flex justify-between items-center pt-3 border-t border-border">

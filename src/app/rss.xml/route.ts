@@ -1,11 +1,8 @@
 import { NextResponse } from "next/server";
 import { getServerApolloClient } from "@/graphql/apollo-server-client";
-import { GetPostsDocument } from "@/graphql/generated/graphql";
+import { GetPostsDocument, Post } from "@/graphql/generated/graphql";
 import { SITE_URL } from "@/lib/utils";
 import RSS from "rss";
-
-const STRAPI_URL =
-  process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
 
 async function fetchPosts() {
   const client = getServerApolloClient();
@@ -30,12 +27,12 @@ export async function GET() {
     pubDate: new Date(),
   });
 
-  posts.forEach((post: any) => {
+  posts.forEach((post: Post) => {
     feed.item({
       title: post.title,
-      description: post.excerpt || post.description || "",
+      description: post.content || "",
       url: `${SITE_URL}/posts/${post.slug}`,
-      date: new Date(post.publishedAt),
+      date: new Date(post.published_date as string),
       author: post.author?.name || "Unknown",
     });
   });

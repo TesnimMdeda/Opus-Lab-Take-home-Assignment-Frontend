@@ -1,12 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { ApolloWrapper } from "@/lib/graghql/apollo-wrapper";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProviderWrapper } from "@/components/theme-provider";
 import { Header } from "@/components/Header";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "My Blog",

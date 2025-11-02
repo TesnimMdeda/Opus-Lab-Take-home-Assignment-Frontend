@@ -58,19 +58,16 @@ export function CommentForm({ postId }: CommentFormProps) {
       });
       setFormData({ authorName: "", authorEmail: "", content: "" });
       setSubmitted(true);
-    } catch (error: any) {
-      const msg =
-        error?.graphQLErrors?.[0]?.message ||
-        error?.message ||
-        "Failed to submit comment ";
-      toast.error(msg, {
+    } catch (err) {
+      console.error("Error subscribing:", err);
+      const message = "Failed to submit comment";
+      toast.error(message, {
         duration: 3000,
         style: { background: "#F87171", color: "#fff" },
       });
-      console.error(error);
+      console.error(err);
     }
   };
-
   if (submitted) {
     return (
       <div className="p-4 border rounded mb-6">

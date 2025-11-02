@@ -1,5 +1,6 @@
 import type { Post } from "@/graphql/generated/graphql";
 import { STRAPI_URL } from "@/lib/utils";
+import Image from "next/image";
 
 interface PostHeaderProps {
   post: Post;
@@ -16,10 +17,12 @@ export function PostHeader({ post }: PostHeaderProps) {
         <div className="flex items-center gap-2">
           <div className="w-10 h-10 rounded-full bg-linear-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-sm font-semibold">
             {post.author?.avatar?.url ? (
-              <img
+              <Image
                 src={`${STRAPI_URL}${post.author.avatar.url}`}
                 alt={post.author.name || "Author Avatar"}
-                className="w-10 h-10 rounded-full object-cover"
+                width={40}
+                height={40}
+                className="rounded-full object-cover"
               />
             ) : (
               <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-white font-bold">
@@ -33,11 +36,14 @@ export function PostHeader({ post }: PostHeaderProps) {
             </p>
             <p className="text-xs text-muted-foreground">
               {post.published_date
-                ? new Date(post.published_date).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })
+                ? new Date(post.published_date as string).toLocaleDateString(
+                    "en-US",
+                    {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    }
+                  )
                 : "No date"}
             </p>
           </div>

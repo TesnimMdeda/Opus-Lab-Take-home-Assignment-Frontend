@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Author, Category, Post, Tag } from "../../lib/generated/graphql";
+import { Author, Category, Post, Tag } from "@/graphql/generated/graphql";
 import { SITE_URL, STRAPI_URL } from "./utils";
 
 function generateDescription(content: string, maxLength: number = 160): string {
@@ -17,7 +17,10 @@ export function generatePostMetadata(post: Post): Metadata {
 
   const description = generateDescription(post.content);
   const authorName = post.author?.name || "Unknown Author";
-  const publishedTime = post.published_date || post.publishedAt;
+  const publishedTime =
+    post.published_date ?? post.publishedAt
+      ? String(post.published_date ?? post.publishedAt)
+      : undefined;
 
   return {
     title: post.title,

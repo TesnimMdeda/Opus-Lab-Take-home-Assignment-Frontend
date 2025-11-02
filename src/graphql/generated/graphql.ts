@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 export type Maybe<T> = T | null;
-export type InputMaybe<T> = Maybe<T>;
+export type InputMaybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
@@ -15,441 +15,441 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
-  Date: { input: any; output: any; }
-  DateTime: { input: any; output: any; }
-  JSON: { input: any; output: any; }
+  Date: { input: unknown; output: unknown; }
+  DateTime: { input: string; output: string; }
+  JSON: { input: Record<string, unknown>; output: Record<string, unknown>; }
 };
 
 export type Author = {
-  __typename?: 'Author';
-  Email: Scalars['String']['output'];
-  avatar?: Maybe<UploadFile>;
-  bio?: Maybe<Scalars['String']['output']>;
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  documentId: Scalars['ID']['output'];
-  name: Scalars['String']['output'];
-  posts: Array<Maybe<Post>>;
-  posts_connection?: Maybe<PostRelationResponseCollection>;
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  slug: Scalars['String']['output'];
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly __typename?: 'Author';
+  readonly Email: Scalars['String']['output'];
+  readonly avatar?: Maybe<UploadFile>;
+  readonly bio?: Maybe<Scalars['String']['output']>;
+  readonly createdAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly documentId: Scalars['ID']['output'];
+  readonly name: Scalars['String']['output'];
+  readonly posts: ReadonlyArray<Maybe<Post>>;
+  readonly posts_connection?: Maybe<PostRelationResponseCollection>;
+  readonly publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly slug: Scalars['String']['output'];
+  readonly updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
 
 export type AuthorPostsArgs = {
   filters?: InputMaybe<PostFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
 export type AuthorPosts_ConnectionArgs = {
   filters?: InputMaybe<PostFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type AuthorEntityResponseCollection = {
-  __typename?: 'AuthorEntityResponseCollection';
-  nodes: Array<Author>;
-  pageInfo: Pagination;
+  readonly __typename?: 'AuthorEntityResponseCollection';
+  readonly nodes: ReadonlyArray<Author>;
+  readonly pageInfo: Pagination;
 };
 
 export type AuthorFiltersInput = {
-  Email?: InputMaybe<StringFilterInput>;
-  and?: InputMaybe<Array<InputMaybe<AuthorFiltersInput>>>;
-  bio?: InputMaybe<StringFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  documentId?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<AuthorFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<AuthorFiltersInput>>>;
-  posts?: InputMaybe<PostFiltersInput>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  slug?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly Email?: InputMaybe<StringFilterInput>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<AuthorFiltersInput>>>;
+  readonly bio?: InputMaybe<StringFilterInput>;
+  readonly createdAt?: InputMaybe<DateTimeFilterInput>;
+  readonly documentId?: InputMaybe<IdFilterInput>;
+  readonly name?: InputMaybe<StringFilterInput>;
+  readonly not?: InputMaybe<AuthorFiltersInput>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<AuthorFiltersInput>>>;
+  readonly posts?: InputMaybe<PostFiltersInput>;
+  readonly publishedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly slug?: InputMaybe<StringFilterInput>;
+  readonly updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
 export type AuthorInput = {
-  Email?: InputMaybe<Scalars['String']['input']>;
-  avatar?: InputMaybe<Scalars['ID']['input']>;
-  bio?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  posts?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  slug?: InputMaybe<Scalars['String']['input']>;
+  readonly Email?: InputMaybe<Scalars['String']['input']>;
+  readonly avatar?: InputMaybe<Scalars['ID']['input']>;
+  readonly bio?: InputMaybe<Scalars['String']['input']>;
+  readonly name?: InputMaybe<Scalars['String']['input']>;
+  readonly posts?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
+  readonly publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly slug?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type BooleanFilterInput = {
-  and?: InputMaybe<Array<InputMaybe<Scalars['Boolean']['input']>>>;
-  between?: InputMaybe<Array<InputMaybe<Scalars['Boolean']['input']>>>;
-  contains?: InputMaybe<Scalars['Boolean']['input']>;
-  containsi?: InputMaybe<Scalars['Boolean']['input']>;
-  endsWith?: InputMaybe<Scalars['Boolean']['input']>;
-  eq?: InputMaybe<Scalars['Boolean']['input']>;
-  eqi?: InputMaybe<Scalars['Boolean']['input']>;
-  gt?: InputMaybe<Scalars['Boolean']['input']>;
-  gte?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['Boolean']['input']>>>;
-  lt?: InputMaybe<Scalars['Boolean']['input']>;
-  lte?: InputMaybe<Scalars['Boolean']['input']>;
-  ne?: InputMaybe<Scalars['Boolean']['input']>;
-  nei?: InputMaybe<Scalars['Boolean']['input']>;
-  not?: InputMaybe<BooleanFilterInput>;
-  notContains?: InputMaybe<Scalars['Boolean']['input']>;
-  notContainsi?: InputMaybe<Scalars['Boolean']['input']>;
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['Boolean']['input']>>>;
-  notNull?: InputMaybe<Scalars['Boolean']['input']>;
-  null?: InputMaybe<Scalars['Boolean']['input']>;
-  or?: InputMaybe<Array<InputMaybe<Scalars['Boolean']['input']>>>;
-  startsWith?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Boolean']['input']>>>;
+  readonly between?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Boolean']['input']>>>;
+  readonly contains?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly containsi?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly endsWith?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly eq?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly eqi?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly gt?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly gte?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly in?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Boolean']['input']>>>;
+  readonly lt?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly lte?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly ne?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly nei?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly not?: InputMaybe<BooleanFilterInput>;
+  readonly notContains?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly notContainsi?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly notIn?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Boolean']['input']>>>;
+  readonly notNull?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly null?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Boolean']['input']>>>;
+  readonly startsWith?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type Category = {
-  __typename?: 'Category';
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  documentId: Scalars['ID']['output'];
-  name: Scalars['String']['output'];
-  posts: Array<Maybe<Post>>;
-  posts_connection?: Maybe<PostRelationResponseCollection>;
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  slug: Scalars['String']['output'];
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly __typename?: 'Category';
+  readonly createdAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly description?: Maybe<Scalars['String']['output']>;
+  readonly documentId: Scalars['ID']['output'];
+  readonly name: Scalars['String']['output'];
+  readonly posts: ReadonlyArray<Maybe<Post>>;
+  readonly posts_connection?: Maybe<PostRelationResponseCollection>;
+  readonly publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly slug: Scalars['String']['output'];
+  readonly updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
 
 export type CategoryPostsArgs = {
   filters?: InputMaybe<PostFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
 export type CategoryPosts_ConnectionArgs = {
   filters?: InputMaybe<PostFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type CategoryEntityResponseCollection = {
-  __typename?: 'CategoryEntityResponseCollection';
-  nodes: Array<Category>;
-  pageInfo: Pagination;
+  readonly __typename?: 'CategoryEntityResponseCollection';
+  readonly nodes: ReadonlyArray<Category>;
+  readonly pageInfo: Pagination;
 };
 
 export type CategoryFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<CategoryFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  description?: InputMaybe<StringFilterInput>;
-  documentId?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<CategoryFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<CategoryFiltersInput>>>;
-  posts?: InputMaybe<PostFiltersInput>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  slug?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<CategoryFiltersInput>>>;
+  readonly createdAt?: InputMaybe<DateTimeFilterInput>;
+  readonly description?: InputMaybe<StringFilterInput>;
+  readonly documentId?: InputMaybe<IdFilterInput>;
+  readonly name?: InputMaybe<StringFilterInput>;
+  readonly not?: InputMaybe<CategoryFiltersInput>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<CategoryFiltersInput>>>;
+  readonly posts?: InputMaybe<PostFiltersInput>;
+  readonly publishedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly slug?: InputMaybe<StringFilterInput>;
+  readonly updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
 export type CategoryInput = {
-  description?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  posts?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  slug?: InputMaybe<Scalars['String']['input']>;
+  readonly description?: InputMaybe<Scalars['String']['input']>;
+  readonly name?: InputMaybe<Scalars['String']['input']>;
+  readonly posts?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
+  readonly publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly slug?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Comment = {
-  __typename?: 'Comment';
-  approved?: Maybe<Scalars['Boolean']['output']>;
-  authorEmail: Scalars['String']['output'];
-  authorName: Scalars['String']['output'];
-  content: Scalars['String']['output'];
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  documentId: Scalars['ID']['output'];
-  post?: Maybe<Post>;
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly __typename?: 'Comment';
+  readonly approved?: Maybe<Scalars['Boolean']['output']>;
+  readonly authorEmail: Scalars['String']['output'];
+  readonly authorName: Scalars['String']['output'];
+  readonly content: Scalars['String']['output'];
+  readonly createdAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly documentId: Scalars['ID']['output'];
+  readonly post?: Maybe<Post>;
+  readonly publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
 export type CommentEntityResponseCollection = {
-  __typename?: 'CommentEntityResponseCollection';
-  nodes: Array<Comment>;
-  pageInfo: Pagination;
+  readonly __typename?: 'CommentEntityResponseCollection';
+  readonly nodes: ReadonlyArray<Comment>;
+  readonly pageInfo: Pagination;
 };
 
 export type CommentFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<CommentFiltersInput>>>;
-  approved?: InputMaybe<BooleanFilterInput>;
-  authorEmail?: InputMaybe<StringFilterInput>;
-  authorName?: InputMaybe<StringFilterInput>;
-  content?: InputMaybe<StringFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  documentId?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<CommentFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<CommentFiltersInput>>>;
-  post?: InputMaybe<PostFiltersInput>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<CommentFiltersInput>>>;
+  readonly approved?: InputMaybe<BooleanFilterInput>;
+  readonly authorEmail?: InputMaybe<StringFilterInput>;
+  readonly authorName?: InputMaybe<StringFilterInput>;
+  readonly content?: InputMaybe<StringFilterInput>;
+  readonly createdAt?: InputMaybe<DateTimeFilterInput>;
+  readonly documentId?: InputMaybe<IdFilterInput>;
+  readonly not?: InputMaybe<CommentFiltersInput>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<CommentFiltersInput>>>;
+  readonly post?: InputMaybe<PostFiltersInput>;
+  readonly publishedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
 export type CommentInput = {
-  approved?: InputMaybe<Scalars['Boolean']['input']>;
-  authorEmail?: InputMaybe<Scalars['String']['input']>;
-  authorName?: InputMaybe<Scalars['String']['input']>;
-  content?: InputMaybe<Scalars['String']['input']>;
-  post?: InputMaybe<Scalars['ID']['input']>;
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly approved?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly authorEmail?: InputMaybe<Scalars['String']['input']>;
+  readonly authorName?: InputMaybe<Scalars['String']['input']>;
+  readonly content?: InputMaybe<Scalars['String']['input']>;
+  readonly post?: InputMaybe<Scalars['ID']['input']>;
+  readonly publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
 export type CommentRelationResponseCollection = {
-  __typename?: 'CommentRelationResponseCollection';
-  nodes: Array<Comment>;
+  readonly __typename?: 'CommentRelationResponseCollection';
+  readonly nodes: ReadonlyArray<Comment>;
 };
 
 export type DateFilterInput = {
-  and?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
-  between?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
-  contains?: InputMaybe<Scalars['Date']['input']>;
-  containsi?: InputMaybe<Scalars['Date']['input']>;
-  endsWith?: InputMaybe<Scalars['Date']['input']>;
-  eq?: InputMaybe<Scalars['Date']['input']>;
-  eqi?: InputMaybe<Scalars['Date']['input']>;
-  gt?: InputMaybe<Scalars['Date']['input']>;
-  gte?: InputMaybe<Scalars['Date']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
-  lt?: InputMaybe<Scalars['Date']['input']>;
-  lte?: InputMaybe<Scalars['Date']['input']>;
-  ne?: InputMaybe<Scalars['Date']['input']>;
-  nei?: InputMaybe<Scalars['Date']['input']>;
-  not?: InputMaybe<DateFilterInput>;
-  notContains?: InputMaybe<Scalars['Date']['input']>;
-  notContainsi?: InputMaybe<Scalars['Date']['input']>;
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
-  notNull?: InputMaybe<Scalars['Boolean']['input']>;
-  null?: InputMaybe<Scalars['Boolean']['input']>;
-  or?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
-  startsWith?: InputMaybe<Scalars['Date']['input']>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Date']['input']>>>;
+  readonly between?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Date']['input']>>>;
+  readonly contains?: InputMaybe<Scalars['Date']['input']>;
+  readonly containsi?: InputMaybe<Scalars['Date']['input']>;
+  readonly endsWith?: InputMaybe<Scalars['Date']['input']>;
+  readonly eq?: InputMaybe<Scalars['Date']['input']>;
+  readonly eqi?: InputMaybe<Scalars['Date']['input']>;
+  readonly gt?: InputMaybe<Scalars['Date']['input']>;
+  readonly gte?: InputMaybe<Scalars['Date']['input']>;
+  readonly in?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Date']['input']>>>;
+  readonly lt?: InputMaybe<Scalars['Date']['input']>;
+  readonly lte?: InputMaybe<Scalars['Date']['input']>;
+  readonly ne?: InputMaybe<Scalars['Date']['input']>;
+  readonly nei?: InputMaybe<Scalars['Date']['input']>;
+  readonly not?: InputMaybe<DateFilterInput>;
+  readonly notContains?: InputMaybe<Scalars['Date']['input']>;
+  readonly notContainsi?: InputMaybe<Scalars['Date']['input']>;
+  readonly notIn?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Date']['input']>>>;
+  readonly notNull?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly null?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Date']['input']>>>;
+  readonly startsWith?: InputMaybe<Scalars['Date']['input']>;
 };
 
 export type DateTimeFilterInput = {
-  and?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  between?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  contains?: InputMaybe<Scalars['DateTime']['input']>;
-  containsi?: InputMaybe<Scalars['DateTime']['input']>;
-  endsWith?: InputMaybe<Scalars['DateTime']['input']>;
-  eq?: InputMaybe<Scalars['DateTime']['input']>;
-  eqi?: InputMaybe<Scalars['DateTime']['input']>;
-  gt?: InputMaybe<Scalars['DateTime']['input']>;
-  gte?: InputMaybe<Scalars['DateTime']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  lt?: InputMaybe<Scalars['DateTime']['input']>;
-  lte?: InputMaybe<Scalars['DateTime']['input']>;
-  ne?: InputMaybe<Scalars['DateTime']['input']>;
-  nei?: InputMaybe<Scalars['DateTime']['input']>;
-  not?: InputMaybe<DateTimeFilterInput>;
-  notContains?: InputMaybe<Scalars['DateTime']['input']>;
-  notContainsi?: InputMaybe<Scalars['DateTime']['input']>;
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  notNull?: InputMaybe<Scalars['Boolean']['input']>;
-  null?: InputMaybe<Scalars['Boolean']['input']>;
-  or?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  startsWith?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['DateTime']['input']>>>;
+  readonly between?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['DateTime']['input']>>>;
+  readonly contains?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly containsi?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly endsWith?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly eq?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly eqi?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly gt?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly gte?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly in?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['DateTime']['input']>>>;
+  readonly lt?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly lte?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly ne?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly nei?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly not?: InputMaybe<DateTimeFilterInput>;
+  readonly notContains?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly notContainsi?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly notIn?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['DateTime']['input']>>>;
+  readonly notNull?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly null?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['DateTime']['input']>>>;
+  readonly startsWith?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
 export type DeleteMutationResponse = {
-  __typename?: 'DeleteMutationResponse';
-  documentId: Scalars['ID']['output'];
+  readonly __typename?: 'DeleteMutationResponse';
+  readonly documentId: Scalars['ID']['output'];
 };
 
 export type FileInfoInput = {
-  alternativeText?: InputMaybe<Scalars['String']['input']>;
-  caption?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
+  readonly alternativeText?: InputMaybe<Scalars['String']['input']>;
+  readonly caption?: InputMaybe<Scalars['String']['input']>;
+  readonly name?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type FloatFilterInput = {
-  and?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
-  between?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
-  contains?: InputMaybe<Scalars['Float']['input']>;
-  containsi?: InputMaybe<Scalars['Float']['input']>;
-  endsWith?: InputMaybe<Scalars['Float']['input']>;
-  eq?: InputMaybe<Scalars['Float']['input']>;
-  eqi?: InputMaybe<Scalars['Float']['input']>;
-  gt?: InputMaybe<Scalars['Float']['input']>;
-  gte?: InputMaybe<Scalars['Float']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
-  lt?: InputMaybe<Scalars['Float']['input']>;
-  lte?: InputMaybe<Scalars['Float']['input']>;
-  ne?: InputMaybe<Scalars['Float']['input']>;
-  nei?: InputMaybe<Scalars['Float']['input']>;
-  not?: InputMaybe<FloatFilterInput>;
-  notContains?: InputMaybe<Scalars['Float']['input']>;
-  notContainsi?: InputMaybe<Scalars['Float']['input']>;
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
-  notNull?: InputMaybe<Scalars['Boolean']['input']>;
-  null?: InputMaybe<Scalars['Boolean']['input']>;
-  or?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
-  startsWith?: InputMaybe<Scalars['Float']['input']>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']['input']>>>;
+  readonly between?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']['input']>>>;
+  readonly contains?: InputMaybe<Scalars['Float']['input']>;
+  readonly containsi?: InputMaybe<Scalars['Float']['input']>;
+  readonly endsWith?: InputMaybe<Scalars['Float']['input']>;
+  readonly eq?: InputMaybe<Scalars['Float']['input']>;
+  readonly eqi?: InputMaybe<Scalars['Float']['input']>;
+  readonly gt?: InputMaybe<Scalars['Float']['input']>;
+  readonly gte?: InputMaybe<Scalars['Float']['input']>;
+  readonly in?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']['input']>>>;
+  readonly lt?: InputMaybe<Scalars['Float']['input']>;
+  readonly lte?: InputMaybe<Scalars['Float']['input']>;
+  readonly ne?: InputMaybe<Scalars['Float']['input']>;
+  readonly nei?: InputMaybe<Scalars['Float']['input']>;
+  readonly not?: InputMaybe<FloatFilterInput>;
+  readonly notContains?: InputMaybe<Scalars['Float']['input']>;
+  readonly notContainsi?: InputMaybe<Scalars['Float']['input']>;
+  readonly notIn?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']['input']>>>;
+  readonly notNull?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly null?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']['input']>>>;
+  readonly startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type GenericMorph = Author | Category | Comment | I18NLocale | Newsletter | Post | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | Tag | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
-  __typename?: 'I18NLocale';
-  code?: Maybe<Scalars['String']['output']>;
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  documentId: Scalars['ID']['output'];
-  name?: Maybe<Scalars['String']['output']>;
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly __typename?: 'I18NLocale';
+  readonly code?: Maybe<Scalars['String']['output']>;
+  readonly createdAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly documentId: Scalars['ID']['output'];
+  readonly name?: Maybe<Scalars['String']['output']>;
+  readonly publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
 export type I18NLocaleEntityResponseCollection = {
-  __typename?: 'I18NLocaleEntityResponseCollection';
-  nodes: Array<I18NLocale>;
-  pageInfo: Pagination;
+  readonly __typename?: 'I18NLocaleEntityResponseCollection';
+  readonly nodes: ReadonlyArray<I18NLocale>;
+  readonly pageInfo: Pagination;
 };
 
 export type I18NLocaleFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<I18NLocaleFiltersInput>>>;
-  code?: InputMaybe<StringFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  documentId?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<I18NLocaleFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<I18NLocaleFiltersInput>>>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<I18NLocaleFiltersInput>>>;
+  readonly code?: InputMaybe<StringFilterInput>;
+  readonly createdAt?: InputMaybe<DateTimeFilterInput>;
+  readonly documentId?: InputMaybe<IdFilterInput>;
+  readonly name?: InputMaybe<StringFilterInput>;
+  readonly not?: InputMaybe<I18NLocaleFiltersInput>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<I18NLocaleFiltersInput>>>;
+  readonly publishedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
 export type IdFilterInput = {
-  and?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  between?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  contains?: InputMaybe<Scalars['ID']['input']>;
-  containsi?: InputMaybe<Scalars['ID']['input']>;
-  endsWith?: InputMaybe<Scalars['ID']['input']>;
-  eq?: InputMaybe<Scalars['ID']['input']>;
-  eqi?: InputMaybe<Scalars['ID']['input']>;
-  gt?: InputMaybe<Scalars['ID']['input']>;
-  gte?: InputMaybe<Scalars['ID']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  lt?: InputMaybe<Scalars['ID']['input']>;
-  lte?: InputMaybe<Scalars['ID']['input']>;
-  ne?: InputMaybe<Scalars['ID']['input']>;
-  nei?: InputMaybe<Scalars['ID']['input']>;
-  not?: InputMaybe<IdFilterInput>;
-  notContains?: InputMaybe<Scalars['ID']['input']>;
-  notContainsi?: InputMaybe<Scalars['ID']['input']>;
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  notNull?: InputMaybe<Scalars['Boolean']['input']>;
-  null?: InputMaybe<Scalars['Boolean']['input']>;
-  or?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  startsWith?: InputMaybe<Scalars['ID']['input']>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
+  readonly between?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
+  readonly contains?: InputMaybe<Scalars['ID']['input']>;
+  readonly containsi?: InputMaybe<Scalars['ID']['input']>;
+  readonly endsWith?: InputMaybe<Scalars['ID']['input']>;
+  readonly eq?: InputMaybe<Scalars['ID']['input']>;
+  readonly eqi?: InputMaybe<Scalars['ID']['input']>;
+  readonly gt?: InputMaybe<Scalars['ID']['input']>;
+  readonly gte?: InputMaybe<Scalars['ID']['input']>;
+  readonly in?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
+  readonly lt?: InputMaybe<Scalars['ID']['input']>;
+  readonly lte?: InputMaybe<Scalars['ID']['input']>;
+  readonly ne?: InputMaybe<Scalars['ID']['input']>;
+  readonly nei?: InputMaybe<Scalars['ID']['input']>;
+  readonly not?: InputMaybe<IdFilterInput>;
+  readonly notContains?: InputMaybe<Scalars['ID']['input']>;
+  readonly notContainsi?: InputMaybe<Scalars['ID']['input']>;
+  readonly notIn?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
+  readonly notNull?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly null?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
+  readonly startsWith?: InputMaybe<Scalars['ID']['input']>;
 };
 
 export type IntFilterInput = {
-  and?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
-  between?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
-  contains?: InputMaybe<Scalars['Int']['input']>;
-  containsi?: InputMaybe<Scalars['Int']['input']>;
-  endsWith?: InputMaybe<Scalars['Int']['input']>;
-  eq?: InputMaybe<Scalars['Int']['input']>;
-  eqi?: InputMaybe<Scalars['Int']['input']>;
-  gt?: InputMaybe<Scalars['Int']['input']>;
-  gte?: InputMaybe<Scalars['Int']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
-  lt?: InputMaybe<Scalars['Int']['input']>;
-  lte?: InputMaybe<Scalars['Int']['input']>;
-  ne?: InputMaybe<Scalars['Int']['input']>;
-  nei?: InputMaybe<Scalars['Int']['input']>;
-  not?: InputMaybe<IntFilterInput>;
-  notContains?: InputMaybe<Scalars['Int']['input']>;
-  notContainsi?: InputMaybe<Scalars['Int']['input']>;
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
-  notNull?: InputMaybe<Scalars['Boolean']['input']>;
-  null?: InputMaybe<Scalars['Boolean']['input']>;
-  or?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
-  startsWith?: InputMaybe<Scalars['Int']['input']>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']['input']>>>;
+  readonly between?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']['input']>>>;
+  readonly contains?: InputMaybe<Scalars['Int']['input']>;
+  readonly containsi?: InputMaybe<Scalars['Int']['input']>;
+  readonly endsWith?: InputMaybe<Scalars['Int']['input']>;
+  readonly eq?: InputMaybe<Scalars['Int']['input']>;
+  readonly eqi?: InputMaybe<Scalars['Int']['input']>;
+  readonly gt?: InputMaybe<Scalars['Int']['input']>;
+  readonly gte?: InputMaybe<Scalars['Int']['input']>;
+  readonly in?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']['input']>>>;
+  readonly lt?: InputMaybe<Scalars['Int']['input']>;
+  readonly lte?: InputMaybe<Scalars['Int']['input']>;
+  readonly ne?: InputMaybe<Scalars['Int']['input']>;
+  readonly nei?: InputMaybe<Scalars['Int']['input']>;
+  readonly not?: InputMaybe<IntFilterInput>;
+  readonly notContains?: InputMaybe<Scalars['Int']['input']>;
+  readonly notContainsi?: InputMaybe<Scalars['Int']['input']>;
+  readonly notIn?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']['input']>>>;
+  readonly notNull?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly null?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']['input']>>>;
+  readonly startsWith?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type JsonFilterInput = {
-  and?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>;
-  between?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>;
-  contains?: InputMaybe<Scalars['JSON']['input']>;
-  containsi?: InputMaybe<Scalars['JSON']['input']>;
-  endsWith?: InputMaybe<Scalars['JSON']['input']>;
-  eq?: InputMaybe<Scalars['JSON']['input']>;
-  eqi?: InputMaybe<Scalars['JSON']['input']>;
-  gt?: InputMaybe<Scalars['JSON']['input']>;
-  gte?: InputMaybe<Scalars['JSON']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>;
-  lt?: InputMaybe<Scalars['JSON']['input']>;
-  lte?: InputMaybe<Scalars['JSON']['input']>;
-  ne?: InputMaybe<Scalars['JSON']['input']>;
-  nei?: InputMaybe<Scalars['JSON']['input']>;
-  not?: InputMaybe<JsonFilterInput>;
-  notContains?: InputMaybe<Scalars['JSON']['input']>;
-  notContainsi?: InputMaybe<Scalars['JSON']['input']>;
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>;
-  notNull?: InputMaybe<Scalars['Boolean']['input']>;
-  null?: InputMaybe<Scalars['Boolean']['input']>;
-  or?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>;
-  startsWith?: InputMaybe<Scalars['JSON']['input']>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['JSON']['input']>>>;
+  readonly between?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['JSON']['input']>>>;
+  readonly contains?: InputMaybe<Scalars['JSON']['input']>;
+  readonly containsi?: InputMaybe<Scalars['JSON']['input']>;
+  readonly endsWith?: InputMaybe<Scalars['JSON']['input']>;
+  readonly eq?: InputMaybe<Scalars['JSON']['input']>;
+  readonly eqi?: InputMaybe<Scalars['JSON']['input']>;
+  readonly gt?: InputMaybe<Scalars['JSON']['input']>;
+  readonly gte?: InputMaybe<Scalars['JSON']['input']>;
+  readonly in?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['JSON']['input']>>>;
+  readonly lt?: InputMaybe<Scalars['JSON']['input']>;
+  readonly lte?: InputMaybe<Scalars['JSON']['input']>;
+  readonly ne?: InputMaybe<Scalars['JSON']['input']>;
+  readonly nei?: InputMaybe<Scalars['JSON']['input']>;
+  readonly not?: InputMaybe<JsonFilterInput>;
+  readonly notContains?: InputMaybe<Scalars['JSON']['input']>;
+  readonly notContainsi?: InputMaybe<Scalars['JSON']['input']>;
+  readonly notIn?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['JSON']['input']>>>;
+  readonly notNull?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly null?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['JSON']['input']>>>;
+  readonly startsWith?: InputMaybe<Scalars['JSON']['input']>;
 };
 
 export type Mutation = {
-  __typename?: 'Mutation';
+  readonly __typename?: 'Mutation';
   /** Change user password. Confirm with the current password. */
-  changePassword?: Maybe<UsersPermissionsLoginPayload>;
-  createAuthor?: Maybe<Author>;
-  createCategory?: Maybe<Category>;
-  createComment?: Maybe<Comment>;
-  createNewsletter?: Maybe<Newsletter>;
-  createPost?: Maybe<Post>;
-  createReviewWorkflowsWorkflow?: Maybe<ReviewWorkflowsWorkflow>;
-  createReviewWorkflowsWorkflowStage?: Maybe<ReviewWorkflowsWorkflowStage>;
-  createTag?: Maybe<Tag>;
+  readonly changePassword?: Maybe<UsersPermissionsLoginPayload>;
+  readonly createAuthor?: Maybe<Author>;
+  readonly createCategory?: Maybe<Category>;
+  readonly createComment?: Maybe<Comment>;
+  readonly createNewsletter?: Maybe<Newsletter>;
+  readonly createPost?: Maybe<Post>;
+  readonly createReviewWorkflowsWorkflow?: Maybe<ReviewWorkflowsWorkflow>;
+  readonly createReviewWorkflowsWorkflowStage?: Maybe<ReviewWorkflowsWorkflowStage>;
+  readonly createTag?: Maybe<Tag>;
   /** Create a new role */
-  createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
+  readonly createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
   /** Create a new user */
-  createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
-  deleteAuthor?: Maybe<DeleteMutationResponse>;
-  deleteCategory?: Maybe<DeleteMutationResponse>;
-  deleteComment?: Maybe<DeleteMutationResponse>;
-  deleteNewsletter?: Maybe<DeleteMutationResponse>;
-  deletePost?: Maybe<DeleteMutationResponse>;
-  deleteReviewWorkflowsWorkflow?: Maybe<DeleteMutationResponse>;
-  deleteReviewWorkflowsWorkflowStage?: Maybe<DeleteMutationResponse>;
-  deleteTag?: Maybe<DeleteMutationResponse>;
-  deleteUploadFile?: Maybe<UploadFile>;
+  readonly createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  readonly deleteAuthor?: Maybe<DeleteMutationResponse>;
+  readonly deleteCategory?: Maybe<DeleteMutationResponse>;
+  readonly deleteComment?: Maybe<DeleteMutationResponse>;
+  readonly deleteNewsletter?: Maybe<DeleteMutationResponse>;
+  readonly deletePost?: Maybe<DeleteMutationResponse>;
+  readonly deleteReviewWorkflowsWorkflow?: Maybe<DeleteMutationResponse>;
+  readonly deleteReviewWorkflowsWorkflowStage?: Maybe<DeleteMutationResponse>;
+  readonly deleteTag?: Maybe<DeleteMutationResponse>;
+  readonly deleteUploadFile?: Maybe<UploadFile>;
   /** Delete an existing role */
-  deleteUsersPermissionsRole?: Maybe<UsersPermissionsDeleteRolePayload>;
+  readonly deleteUsersPermissionsRole?: Maybe<UsersPermissionsDeleteRolePayload>;
   /** Delete an existing user */
-  deleteUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  readonly deleteUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   /** Confirm an email users email address */
-  emailConfirmation?: Maybe<UsersPermissionsLoginPayload>;
+  readonly emailConfirmation?: Maybe<UsersPermissionsLoginPayload>;
   /** Request a reset password token */
-  forgotPassword?: Maybe<UsersPermissionsPasswordPayload>;
-  login: UsersPermissionsLoginPayload;
+  readonly forgotPassword?: Maybe<UsersPermissionsPasswordPayload>;
+  readonly login: UsersPermissionsLoginPayload;
   /** Register a user */
-  register: UsersPermissionsLoginPayload;
+  readonly register: UsersPermissionsLoginPayload;
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
-  resetPassword?: Maybe<UsersPermissionsLoginPayload>;
-  updateAuthor?: Maybe<Author>;
-  updateCategory?: Maybe<Category>;
-  updateComment?: Maybe<Comment>;
-  updateNewsletter?: Maybe<Newsletter>;
-  updatePost?: Maybe<Post>;
-  updateReviewWorkflowsWorkflow?: Maybe<ReviewWorkflowsWorkflow>;
-  updateReviewWorkflowsWorkflowStage?: Maybe<ReviewWorkflowsWorkflowStage>;
-  updateTag?: Maybe<Tag>;
-  updateUploadFile: UploadFile;
+  readonly resetPassword?: Maybe<UsersPermissionsLoginPayload>;
+  readonly updateAuthor?: Maybe<Author>;
+  readonly updateCategory?: Maybe<Category>;
+  readonly updateComment?: Maybe<Comment>;
+  readonly updateNewsletter?: Maybe<Newsletter>;
+  readonly updatePost?: Maybe<Post>;
+  readonly updateReviewWorkflowsWorkflow?: Maybe<ReviewWorkflowsWorkflow>;
+  readonly updateReviewWorkflowsWorkflowStage?: Maybe<ReviewWorkflowsWorkflowStage>;
+  readonly updateTag?: Maybe<Tag>;
+  readonly updateUploadFile: UploadFile;
   /** Update an existing role */
-  updateUsersPermissionsRole?: Maybe<UsersPermissionsUpdateRolePayload>;
+  readonly updateUsersPermissionsRole?: Maybe<UsersPermissionsUpdateRolePayload>;
   /** Update an existing user */
-  updateUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  readonly updateUsersPermissionsUser: UsersPermissionsUserEntityResponse;
 };
 
 
@@ -674,138 +674,138 @@ export type MutationUpdateUsersPermissionsUserArgs = {
 };
 
 export type Newsletter = {
-  __typename?: 'Newsletter';
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  documentId: Scalars['ID']['output'];
-  email: Scalars['String']['output'];
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly __typename?: 'Newsletter';
+  readonly createdAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly documentId: Scalars['ID']['output'];
+  readonly email: Scalars['String']['output'];
+  readonly publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
 export type NewsletterEntityResponseCollection = {
-  __typename?: 'NewsletterEntityResponseCollection';
-  nodes: Array<Newsletter>;
-  pageInfo: Pagination;
+  readonly __typename?: 'NewsletterEntityResponseCollection';
+  readonly nodes: ReadonlyArray<Newsletter>;
+  readonly pageInfo: Pagination;
 };
 
 export type NewsletterFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<NewsletterFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  documentId?: InputMaybe<IdFilterInput>;
-  email?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<NewsletterFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<NewsletterFiltersInput>>>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<NewsletterFiltersInput>>>;
+  readonly createdAt?: InputMaybe<DateTimeFilterInput>;
+  readonly documentId?: InputMaybe<IdFilterInput>;
+  readonly email?: InputMaybe<StringFilterInput>;
+  readonly not?: InputMaybe<NewsletterFiltersInput>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<NewsletterFiltersInput>>>;
+  readonly publishedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
 export type NewsletterInput = {
-  email?: InputMaybe<Scalars['String']['input']>;
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly email?: InputMaybe<Scalars['String']['input']>;
+  readonly publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
 export type Pagination = {
-  __typename?: 'Pagination';
-  page: Scalars['Int']['output'];
-  pageCount: Scalars['Int']['output'];
-  pageSize: Scalars['Int']['output'];
-  total: Scalars['Int']['output'];
+  readonly __typename?: 'Pagination';
+  readonly page: Scalars['Int']['output'];
+  readonly pageCount: Scalars['Int']['output'];
+  readonly pageSize: Scalars['Int']['output'];
+  readonly total: Scalars['Int']['output'];
 };
 
 export type PaginationArg = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  page?: InputMaybe<Scalars['Int']['input']>;
-  pageSize?: InputMaybe<Scalars['Int']['input']>;
-  start?: InputMaybe<Scalars['Int']['input']>;
+  readonly limit?: InputMaybe<Scalars['Int']['input']>;
+  readonly page?: InputMaybe<Scalars['Int']['input']>;
+  readonly pageSize?: InputMaybe<Scalars['Int']['input']>;
+  readonly start?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type Post = {
-  __typename?: 'Post';
-  author?: Maybe<Author>;
-  category?: Maybe<Category>;
-  comments: Array<Maybe<Comment>>;
-  comments_connection?: Maybe<CommentRelationResponseCollection>;
-  content: Scalars['String']['output'];
-  coverImage?: Maybe<UploadFile>;
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  documentId: Scalars['ID']['output'];
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  published_date?: Maybe<Scalars['Date']['output']>;
-  slug: Scalars['String']['output'];
-  tags: Array<Maybe<Tag>>;
-  tags_connection?: Maybe<TagRelationResponseCollection>;
-  title: Scalars['String']['output'];
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly __typename?: 'Post';
+  readonly author?: Maybe<Author>;
+  readonly category?: Maybe<Category>;
+  readonly comments: ReadonlyArray<Maybe<Comment>>;
+  readonly comments_connection?: Maybe<CommentRelationResponseCollection>;
+  readonly content: Scalars['String']['output'];
+  readonly coverImage?: Maybe<UploadFile>;
+  readonly createdAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly documentId: Scalars['ID']['output'];
+  readonly publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly published_date?: Maybe<Scalars['Date']['output']>;
+  readonly slug: Scalars['String']['output'];
+  readonly tags: ReadonlyArray<Maybe<Tag>>;
+  readonly tags_connection?: Maybe<TagRelationResponseCollection>;
+  readonly title: Scalars['String']['output'];
+  readonly updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
 
 export type PostCommentsArgs = {
   filters?: InputMaybe<CommentFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
 export type PostComments_ConnectionArgs = {
   filters?: InputMaybe<CommentFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
 export type PostTagsArgs = {
   filters?: InputMaybe<TagFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
 export type PostTags_ConnectionArgs = {
   filters?: InputMaybe<TagFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type PostEntityResponseCollection = {
-  __typename?: 'PostEntityResponseCollection';
-  nodes: Array<Post>;
-  pageInfo: Pagination;
+  readonly __typename?: 'PostEntityResponseCollection';
+  readonly nodes: ReadonlyArray<Post>;
+  readonly pageInfo: Pagination;
 };
 
 export type PostFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<PostFiltersInput>>>;
-  author?: InputMaybe<AuthorFiltersInput>;
-  category?: InputMaybe<CategoryFiltersInput>;
-  comments?: InputMaybe<CommentFiltersInput>;
-  content?: InputMaybe<StringFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  documentId?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<PostFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<PostFiltersInput>>>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  published_date?: InputMaybe<DateFilterInput>;
-  slug?: InputMaybe<StringFilterInput>;
-  tags?: InputMaybe<TagFiltersInput>;
-  title?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<PostFiltersInput>>>;
+  readonly author?: InputMaybe<AuthorFiltersInput>;
+  readonly category?: InputMaybe<CategoryFiltersInput>;
+  readonly comments?: InputMaybe<CommentFiltersInput>;
+  readonly content?: InputMaybe<StringFilterInput>;
+  readonly createdAt?: InputMaybe<DateTimeFilterInput>;
+  readonly documentId?: InputMaybe<IdFilterInput>;
+  readonly not?: InputMaybe<PostFiltersInput>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<PostFiltersInput>>>;
+  readonly publishedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly published_date?: InputMaybe<DateFilterInput>;
+  readonly slug?: InputMaybe<StringFilterInput>;
+  readonly tags?: InputMaybe<TagFiltersInput>;
+  readonly title?: InputMaybe<StringFilterInput>;
+  readonly updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
 export type PostInput = {
-  author?: InputMaybe<Scalars['ID']['input']>;
-  category?: InputMaybe<Scalars['ID']['input']>;
-  comments?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  content?: InputMaybe<Scalars['String']['input']>;
-  coverImage?: InputMaybe<Scalars['ID']['input']>;
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  published_date?: InputMaybe<Scalars['Date']['input']>;
-  slug?: InputMaybe<Scalars['String']['input']>;
-  tags?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  title?: InputMaybe<Scalars['String']['input']>;
+  readonly author?: InputMaybe<Scalars['ID']['input']>;
+  readonly category?: InputMaybe<Scalars['ID']['input']>;
+  readonly comments?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
+  readonly content?: InputMaybe<Scalars['String']['input']>;
+  readonly coverImage?: InputMaybe<Scalars['ID']['input']>;
+  readonly publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly published_date?: InputMaybe<Scalars['Date']['input']>;
+  readonly slug?: InputMaybe<Scalars['String']['input']>;
+  readonly tags?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
+  readonly title?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type PostRelationResponseCollection = {
-  __typename?: 'PostRelationResponseCollection';
-  nodes: Array<Post>;
+  readonly __typename?: 'PostRelationResponseCollection';
+  readonly nodes: ReadonlyArray<Post>;
 };
 
 export type PublicationStatus =
@@ -813,44 +813,44 @@ export type PublicationStatus =
   | 'PUBLISHED';
 
 export type Query = {
-  __typename?: 'Query';
-  author?: Maybe<Author>;
-  authors: Array<Maybe<Author>>;
-  authors_connection?: Maybe<AuthorEntityResponseCollection>;
-  categories: Array<Maybe<Category>>;
-  categories_connection?: Maybe<CategoryEntityResponseCollection>;
-  category?: Maybe<Category>;
-  comment?: Maybe<Comment>;
-  comments: Array<Maybe<Comment>>;
-  comments_connection?: Maybe<CommentEntityResponseCollection>;
-  i18NLocale?: Maybe<I18NLocale>;
-  i18NLocales: Array<Maybe<I18NLocale>>;
-  i18NLocales_connection?: Maybe<I18NLocaleEntityResponseCollection>;
-  me?: Maybe<UsersPermissionsMe>;
-  newsletter?: Maybe<Newsletter>;
-  newsletters: Array<Maybe<Newsletter>>;
-  newsletters_connection?: Maybe<NewsletterEntityResponseCollection>;
-  post?: Maybe<Post>;
-  posts: Array<Maybe<Post>>;
-  posts_connection?: Maybe<PostEntityResponseCollection>;
-  reviewWorkflowsWorkflow?: Maybe<ReviewWorkflowsWorkflow>;
-  reviewWorkflowsWorkflowStage?: Maybe<ReviewWorkflowsWorkflowStage>;
-  reviewWorkflowsWorkflowStages: Array<Maybe<ReviewWorkflowsWorkflowStage>>;
-  reviewWorkflowsWorkflowStages_connection?: Maybe<ReviewWorkflowsWorkflowStageEntityResponseCollection>;
-  reviewWorkflowsWorkflows: Array<Maybe<ReviewWorkflowsWorkflow>>;
-  reviewWorkflowsWorkflows_connection?: Maybe<ReviewWorkflowsWorkflowEntityResponseCollection>;
-  tag?: Maybe<Tag>;
-  tags: Array<Maybe<Tag>>;
-  tags_connection?: Maybe<TagEntityResponseCollection>;
-  uploadFile?: Maybe<UploadFile>;
-  uploadFiles: Array<Maybe<UploadFile>>;
-  uploadFiles_connection?: Maybe<UploadFileEntityResponseCollection>;
-  usersPermissionsRole?: Maybe<UsersPermissionsRole>;
-  usersPermissionsRoles: Array<Maybe<UsersPermissionsRole>>;
-  usersPermissionsRoles_connection?: Maybe<UsersPermissionsRoleEntityResponseCollection>;
-  usersPermissionsUser?: Maybe<UsersPermissionsUser>;
-  usersPermissionsUsers: Array<Maybe<UsersPermissionsUser>>;
-  usersPermissionsUsers_connection?: Maybe<UsersPermissionsUserEntityResponseCollection>;
+  readonly __typename?: 'Query';
+  readonly author?: Maybe<Author>;
+  readonly authors: ReadonlyArray<Maybe<Author>>;
+  readonly authors_connection?: Maybe<AuthorEntityResponseCollection>;
+  readonly categories: ReadonlyArray<Maybe<Category>>;
+  readonly categories_connection?: Maybe<CategoryEntityResponseCollection>;
+  readonly category?: Maybe<Category>;
+  readonly comment?: Maybe<Comment>;
+  readonly comments: ReadonlyArray<Maybe<Comment>>;
+  readonly comments_connection?: Maybe<CommentEntityResponseCollection>;
+  readonly i18NLocale?: Maybe<I18NLocale>;
+  readonly i18NLocales: ReadonlyArray<Maybe<I18NLocale>>;
+  readonly i18NLocales_connection?: Maybe<I18NLocaleEntityResponseCollection>;
+  readonly me?: Maybe<UsersPermissionsMe>;
+  readonly newsletter?: Maybe<Newsletter>;
+  readonly newsletters: ReadonlyArray<Maybe<Newsletter>>;
+  readonly newsletters_connection?: Maybe<NewsletterEntityResponseCollection>;
+  readonly post?: Maybe<Post>;
+  readonly posts: ReadonlyArray<Maybe<Post>>;
+  readonly posts_connection?: Maybe<PostEntityResponseCollection>;
+  readonly reviewWorkflowsWorkflow?: Maybe<ReviewWorkflowsWorkflow>;
+  readonly reviewWorkflowsWorkflowStage?: Maybe<ReviewWorkflowsWorkflowStage>;
+  readonly reviewWorkflowsWorkflowStages: ReadonlyArray<Maybe<ReviewWorkflowsWorkflowStage>>;
+  readonly reviewWorkflowsWorkflowStages_connection?: Maybe<ReviewWorkflowsWorkflowStageEntityResponseCollection>;
+  readonly reviewWorkflowsWorkflows: ReadonlyArray<Maybe<ReviewWorkflowsWorkflow>>;
+  readonly reviewWorkflowsWorkflows_connection?: Maybe<ReviewWorkflowsWorkflowEntityResponseCollection>;
+  readonly tag?: Maybe<Tag>;
+  readonly tags: ReadonlyArray<Maybe<Tag>>;
+  readonly tags_connection?: Maybe<TagEntityResponseCollection>;
+  readonly uploadFile?: Maybe<UploadFile>;
+  readonly uploadFiles: ReadonlyArray<Maybe<UploadFile>>;
+  readonly uploadFiles_connection?: Maybe<UploadFileEntityResponseCollection>;
+  readonly usersPermissionsRole?: Maybe<UsersPermissionsRole>;
+  readonly usersPermissionsRoles: ReadonlyArray<Maybe<UsersPermissionsRole>>;
+  readonly usersPermissionsRoles_connection?: Maybe<UsersPermissionsRoleEntityResponseCollection>;
+  readonly usersPermissionsUser?: Maybe<UsersPermissionsUser>;
+  readonly usersPermissionsUsers: ReadonlyArray<Maybe<UsersPermissionsUser>>;
+  readonly usersPermissionsUsers_connection?: Maybe<UsersPermissionsUserEntityResponseCollection>;
 };
 
 
@@ -863,7 +863,7 @@ export type QueryAuthorArgs = {
 export type QueryAuthorsArgs = {
   filters?: InputMaybe<AuthorFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -871,7 +871,7 @@ export type QueryAuthorsArgs = {
 export type QueryAuthors_ConnectionArgs = {
   filters?: InputMaybe<AuthorFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -879,7 +879,7 @@ export type QueryAuthors_ConnectionArgs = {
 export type QueryCategoriesArgs = {
   filters?: InputMaybe<CategoryFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -887,7 +887,7 @@ export type QueryCategoriesArgs = {
 export type QueryCategories_ConnectionArgs = {
   filters?: InputMaybe<CategoryFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -907,7 +907,7 @@ export type QueryCommentArgs = {
 export type QueryCommentsArgs = {
   filters?: InputMaybe<CommentFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -915,7 +915,7 @@ export type QueryCommentsArgs = {
 export type QueryComments_ConnectionArgs = {
   filters?: InputMaybe<CommentFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -929,7 +929,7 @@ export type QueryI18NLocaleArgs = {
 export type QueryI18NLocalesArgs = {
   filters?: InputMaybe<I18NLocaleFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -937,7 +937,7 @@ export type QueryI18NLocalesArgs = {
 export type QueryI18NLocales_ConnectionArgs = {
   filters?: InputMaybe<I18NLocaleFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -951,7 +951,7 @@ export type QueryNewsletterArgs = {
 export type QueryNewslettersArgs = {
   filters?: InputMaybe<NewsletterFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -959,7 +959,7 @@ export type QueryNewslettersArgs = {
 export type QueryNewsletters_ConnectionArgs = {
   filters?: InputMaybe<NewsletterFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -973,7 +973,7 @@ export type QueryPostArgs = {
 export type QueryPostsArgs = {
   filters?: InputMaybe<PostFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -981,7 +981,7 @@ export type QueryPostsArgs = {
 export type QueryPosts_ConnectionArgs = {
   filters?: InputMaybe<PostFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1001,7 +1001,7 @@ export type QueryReviewWorkflowsWorkflowStageArgs = {
 export type QueryReviewWorkflowsWorkflowStagesArgs = {
   filters?: InputMaybe<ReviewWorkflowsWorkflowStageFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1009,7 +1009,7 @@ export type QueryReviewWorkflowsWorkflowStagesArgs = {
 export type QueryReviewWorkflowsWorkflowStages_ConnectionArgs = {
   filters?: InputMaybe<ReviewWorkflowsWorkflowStageFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1017,7 +1017,7 @@ export type QueryReviewWorkflowsWorkflowStages_ConnectionArgs = {
 export type QueryReviewWorkflowsWorkflowsArgs = {
   filters?: InputMaybe<ReviewWorkflowsWorkflowFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1025,7 +1025,7 @@ export type QueryReviewWorkflowsWorkflowsArgs = {
 export type QueryReviewWorkflowsWorkflows_ConnectionArgs = {
   filters?: InputMaybe<ReviewWorkflowsWorkflowFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1039,7 +1039,7 @@ export type QueryTagArgs = {
 export type QueryTagsArgs = {
   filters?: InputMaybe<TagFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1047,7 +1047,7 @@ export type QueryTagsArgs = {
 export type QueryTags_ConnectionArgs = {
   filters?: InputMaybe<TagFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1061,7 +1061,7 @@ export type QueryUploadFileArgs = {
 export type QueryUploadFilesArgs = {
   filters?: InputMaybe<UploadFileFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1069,7 +1069,7 @@ export type QueryUploadFilesArgs = {
 export type QueryUploadFiles_ConnectionArgs = {
   filters?: InputMaybe<UploadFileFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1083,7 +1083,7 @@ export type QueryUsersPermissionsRoleArgs = {
 export type QueryUsersPermissionsRolesArgs = {
   filters?: InputMaybe<UsersPermissionsRoleFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1091,7 +1091,7 @@ export type QueryUsersPermissionsRolesArgs = {
 export type QueryUsersPermissionsRoles_ConnectionArgs = {
   filters?: InputMaybe<UsersPermissionsRoleFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1105,7 +1105,7 @@ export type QueryUsersPermissionsUserArgs = {
 export type QueryUsersPermissionsUsersArgs = {
   filters?: InputMaybe<UsersPermissionsUserFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1113,454 +1113,454 @@ export type QueryUsersPermissionsUsersArgs = {
 export type QueryUsersPermissionsUsers_ConnectionArgs = {
   filters?: InputMaybe<UsersPermissionsUserFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 
 export type ReviewWorkflowsWorkflow = {
-  __typename?: 'ReviewWorkflowsWorkflow';
-  contentTypes: Scalars['JSON']['output'];
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  documentId: Scalars['ID']['output'];
-  name: Scalars['String']['output'];
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  stageRequiredToPublish?: Maybe<ReviewWorkflowsWorkflowStage>;
-  stages: Array<Maybe<ReviewWorkflowsWorkflowStage>>;
-  stages_connection?: Maybe<ReviewWorkflowsWorkflowStageRelationResponseCollection>;
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly __typename?: 'ReviewWorkflowsWorkflow';
+  readonly contentTypes: Scalars['JSON']['output'];
+  readonly createdAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly documentId: Scalars['ID']['output'];
+  readonly name: Scalars['String']['output'];
+  readonly publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly stageRequiredToPublish?: Maybe<ReviewWorkflowsWorkflowStage>;
+  readonly stages: ReadonlyArray<Maybe<ReviewWorkflowsWorkflowStage>>;
+  readonly stages_connection?: Maybe<ReviewWorkflowsWorkflowStageRelationResponseCollection>;
+  readonly updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
 
 export type ReviewWorkflowsWorkflowStagesArgs = {
   filters?: InputMaybe<ReviewWorkflowsWorkflowStageFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
 export type ReviewWorkflowsWorkflowStages_ConnectionArgs = {
   filters?: InputMaybe<ReviewWorkflowsWorkflowStageFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type ReviewWorkflowsWorkflowEntityResponseCollection = {
-  __typename?: 'ReviewWorkflowsWorkflowEntityResponseCollection';
-  nodes: Array<ReviewWorkflowsWorkflow>;
-  pageInfo: Pagination;
+  readonly __typename?: 'ReviewWorkflowsWorkflowEntityResponseCollection';
+  readonly nodes: ReadonlyArray<ReviewWorkflowsWorkflow>;
+  readonly pageInfo: Pagination;
 };
 
 export type ReviewWorkflowsWorkflowFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ReviewWorkflowsWorkflowFiltersInput>>>;
-  contentTypes?: InputMaybe<JsonFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  documentId?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<ReviewWorkflowsWorkflowFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ReviewWorkflowsWorkflowFiltersInput>>>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  stageRequiredToPublish?: InputMaybe<ReviewWorkflowsWorkflowStageFiltersInput>;
-  stages?: InputMaybe<ReviewWorkflowsWorkflowStageFiltersInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<ReviewWorkflowsWorkflowFiltersInput>>>;
+  readonly contentTypes?: InputMaybe<JsonFilterInput>;
+  readonly createdAt?: InputMaybe<DateTimeFilterInput>;
+  readonly documentId?: InputMaybe<IdFilterInput>;
+  readonly name?: InputMaybe<StringFilterInput>;
+  readonly not?: InputMaybe<ReviewWorkflowsWorkflowFiltersInput>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<ReviewWorkflowsWorkflowFiltersInput>>>;
+  readonly publishedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly stageRequiredToPublish?: InputMaybe<ReviewWorkflowsWorkflowStageFiltersInput>;
+  readonly stages?: InputMaybe<ReviewWorkflowsWorkflowStageFiltersInput>;
+  readonly updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
 export type ReviewWorkflowsWorkflowInput = {
-  contentTypes?: InputMaybe<Scalars['JSON']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  stageRequiredToPublish?: InputMaybe<Scalars['ID']['input']>;
-  stages?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  readonly contentTypes?: InputMaybe<Scalars['JSON']['input']>;
+  readonly name?: InputMaybe<Scalars['String']['input']>;
+  readonly publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly stageRequiredToPublish?: InputMaybe<Scalars['ID']['input']>;
+  readonly stages?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
 };
 
 export type ReviewWorkflowsWorkflowStage = {
-  __typename?: 'ReviewWorkflowsWorkflowStage';
-  color?: Maybe<Scalars['String']['output']>;
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  documentId: Scalars['ID']['output'];
-  name?: Maybe<Scalars['String']['output']>;
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
-  workflow?: Maybe<ReviewWorkflowsWorkflow>;
+  readonly __typename?: 'ReviewWorkflowsWorkflowStage';
+  readonly color?: Maybe<Scalars['String']['output']>;
+  readonly createdAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly documentId: Scalars['ID']['output'];
+  readonly name?: Maybe<Scalars['String']['output']>;
+  readonly publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly workflow?: Maybe<ReviewWorkflowsWorkflow>;
 };
 
 export type ReviewWorkflowsWorkflowStageEntityResponseCollection = {
-  __typename?: 'ReviewWorkflowsWorkflowStageEntityResponseCollection';
-  nodes: Array<ReviewWorkflowsWorkflowStage>;
-  pageInfo: Pagination;
+  readonly __typename?: 'ReviewWorkflowsWorkflowStageEntityResponseCollection';
+  readonly nodes: ReadonlyArray<ReviewWorkflowsWorkflowStage>;
+  readonly pageInfo: Pagination;
 };
 
 export type ReviewWorkflowsWorkflowStageFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ReviewWorkflowsWorkflowStageFiltersInput>>>;
-  color?: InputMaybe<StringFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  documentId?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<ReviewWorkflowsWorkflowStageFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ReviewWorkflowsWorkflowStageFiltersInput>>>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-  workflow?: InputMaybe<ReviewWorkflowsWorkflowFiltersInput>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<ReviewWorkflowsWorkflowStageFiltersInput>>>;
+  readonly color?: InputMaybe<StringFilterInput>;
+  readonly createdAt?: InputMaybe<DateTimeFilterInput>;
+  readonly documentId?: InputMaybe<IdFilterInput>;
+  readonly name?: InputMaybe<StringFilterInput>;
+  readonly not?: InputMaybe<ReviewWorkflowsWorkflowStageFiltersInput>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<ReviewWorkflowsWorkflowStageFiltersInput>>>;
+  readonly publishedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly updatedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly workflow?: InputMaybe<ReviewWorkflowsWorkflowFiltersInput>;
 };
 
 export type ReviewWorkflowsWorkflowStageInput = {
-  color?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  workflow?: InputMaybe<Scalars['ID']['input']>;
+  readonly color?: InputMaybe<Scalars['String']['input']>;
+  readonly name?: InputMaybe<Scalars['String']['input']>;
+  readonly publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly workflow?: InputMaybe<Scalars['ID']['input']>;
 };
 
 export type ReviewWorkflowsWorkflowStageRelationResponseCollection = {
-  __typename?: 'ReviewWorkflowsWorkflowStageRelationResponseCollection';
-  nodes: Array<ReviewWorkflowsWorkflowStage>;
+  readonly __typename?: 'ReviewWorkflowsWorkflowStageRelationResponseCollection';
+  readonly nodes: ReadonlyArray<ReviewWorkflowsWorkflowStage>;
 };
 
 export type StringFilterInput = {
-  and?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  between?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  contains?: InputMaybe<Scalars['String']['input']>;
-  containsi?: InputMaybe<Scalars['String']['input']>;
-  endsWith?: InputMaybe<Scalars['String']['input']>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  eqi?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  nei?: InputMaybe<Scalars['String']['input']>;
-  not?: InputMaybe<StringFilterInput>;
-  notContains?: InputMaybe<Scalars['String']['input']>;
-  notContainsi?: InputMaybe<Scalars['String']['input']>;
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  notNull?: InputMaybe<Scalars['Boolean']['input']>;
-  null?: InputMaybe<Scalars['Boolean']['input']>;
-  or?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  startsWith?: InputMaybe<Scalars['String']['input']>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  readonly between?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  readonly contains?: InputMaybe<Scalars['String']['input']>;
+  readonly containsi?: InputMaybe<Scalars['String']['input']>;
+  readonly endsWith?: InputMaybe<Scalars['String']['input']>;
+  readonly eq?: InputMaybe<Scalars['String']['input']>;
+  readonly eqi?: InputMaybe<Scalars['String']['input']>;
+  readonly gt?: InputMaybe<Scalars['String']['input']>;
+  readonly gte?: InputMaybe<Scalars['String']['input']>;
+  readonly in?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  readonly lt?: InputMaybe<Scalars['String']['input']>;
+  readonly lte?: InputMaybe<Scalars['String']['input']>;
+  readonly ne?: InputMaybe<Scalars['String']['input']>;
+  readonly nei?: InputMaybe<Scalars['String']['input']>;
+  readonly not?: InputMaybe<StringFilterInput>;
+  readonly notContains?: InputMaybe<Scalars['String']['input']>;
+  readonly notContainsi?: InputMaybe<Scalars['String']['input']>;
+  readonly notIn?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  readonly notNull?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly null?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  readonly startsWith?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Tag = {
-  __typename?: 'Tag';
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  documentId: Scalars['ID']['output'];
-  name: Scalars['String']['output'];
-  posts: Array<Maybe<Post>>;
-  posts_connection?: Maybe<PostRelationResponseCollection>;
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  slug: Scalars['String']['output'];
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly __typename?: 'Tag';
+  readonly createdAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly documentId: Scalars['ID']['output'];
+  readonly name: Scalars['String']['output'];
+  readonly posts: ReadonlyArray<Maybe<Post>>;
+  readonly posts_connection?: Maybe<PostRelationResponseCollection>;
+  readonly publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly slug: Scalars['String']['output'];
+  readonly updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
 
 export type TagPostsArgs = {
   filters?: InputMaybe<PostFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
 export type TagPosts_ConnectionArgs = {
   filters?: InputMaybe<PostFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type TagEntityResponseCollection = {
-  __typename?: 'TagEntityResponseCollection';
-  nodes: Array<Tag>;
-  pageInfo: Pagination;
+  readonly __typename?: 'TagEntityResponseCollection';
+  readonly nodes: ReadonlyArray<Tag>;
+  readonly pageInfo: Pagination;
 };
 
 export type TagFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<TagFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  documentId?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<TagFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<TagFiltersInput>>>;
-  posts?: InputMaybe<PostFiltersInput>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  slug?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<TagFiltersInput>>>;
+  readonly createdAt?: InputMaybe<DateTimeFilterInput>;
+  readonly documentId?: InputMaybe<IdFilterInput>;
+  readonly name?: InputMaybe<StringFilterInput>;
+  readonly not?: InputMaybe<TagFiltersInput>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<TagFiltersInput>>>;
+  readonly posts?: InputMaybe<PostFiltersInput>;
+  readonly publishedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly slug?: InputMaybe<StringFilterInput>;
+  readonly updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
 export type TagInput = {
-  name?: InputMaybe<Scalars['String']['input']>;
-  posts?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  slug?: InputMaybe<Scalars['String']['input']>;
+  readonly name?: InputMaybe<Scalars['String']['input']>;
+  readonly posts?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
+  readonly publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly slug?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type TagRelationResponseCollection = {
-  __typename?: 'TagRelationResponseCollection';
-  nodes: Array<Tag>;
+  readonly __typename?: 'TagRelationResponseCollection';
+  readonly nodes: ReadonlyArray<Tag>;
 };
 
 export type UploadFile = {
-  __typename?: 'UploadFile';
-  alternativeText?: Maybe<Scalars['String']['output']>;
-  caption?: Maybe<Scalars['String']['output']>;
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  documentId: Scalars['ID']['output'];
-  ext?: Maybe<Scalars['String']['output']>;
-  formats?: Maybe<Scalars['JSON']['output']>;
-  hash: Scalars['String']['output'];
-  height?: Maybe<Scalars['Int']['output']>;
-  mime: Scalars['String']['output'];
-  name: Scalars['String']['output'];
-  previewUrl?: Maybe<Scalars['String']['output']>;
-  provider: Scalars['String']['output'];
-  provider_metadata?: Maybe<Scalars['JSON']['output']>;
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  related?: Maybe<Array<Maybe<GenericMorph>>>;
-  size: Scalars['Float']['output'];
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
-  url: Scalars['String']['output'];
-  width?: Maybe<Scalars['Int']['output']>;
+  readonly __typename?: 'UploadFile';
+  readonly alternativeText?: Maybe<Scalars['String']['output']>;
+  readonly caption?: Maybe<Scalars['String']['output']>;
+  readonly createdAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly documentId: Scalars['ID']['output'];
+  readonly ext?: Maybe<Scalars['String']['output']>;
+  readonly formats?: Maybe<Scalars['JSON']['output']>;
+  readonly hash: Scalars['String']['output'];
+  readonly height?: Maybe<Scalars['Int']['output']>;
+  readonly mime: Scalars['String']['output'];
+  readonly name: Scalars['String']['output'];
+  readonly previewUrl?: Maybe<Scalars['String']['output']>;
+  readonly provider: Scalars['String']['output'];
+  readonly provider_metadata?: Maybe<Scalars['JSON']['output']>;
+  readonly publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly related?: Maybe<ReadonlyArray<Maybe<GenericMorph>>>;
+  readonly size: Scalars['Float']['output'];
+  readonly updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly url: Scalars['String']['output'];
+  readonly width?: Maybe<Scalars['Int']['output']>;
 };
 
 export type UploadFileEntityResponseCollection = {
-  __typename?: 'UploadFileEntityResponseCollection';
-  nodes: Array<UploadFile>;
-  pageInfo: Pagination;
+  readonly __typename?: 'UploadFileEntityResponseCollection';
+  readonly nodes: ReadonlyArray<UploadFile>;
+  readonly pageInfo: Pagination;
 };
 
 export type UploadFileFiltersInput = {
-  alternativeText?: InputMaybe<StringFilterInput>;
-  and?: InputMaybe<Array<InputMaybe<UploadFileFiltersInput>>>;
-  caption?: InputMaybe<StringFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  documentId?: InputMaybe<IdFilterInput>;
-  ext?: InputMaybe<StringFilterInput>;
-  formats?: InputMaybe<JsonFilterInput>;
-  hash?: InputMaybe<StringFilterInput>;
-  height?: InputMaybe<IntFilterInput>;
-  mime?: InputMaybe<StringFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<UploadFileFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<UploadFileFiltersInput>>>;
-  previewUrl?: InputMaybe<StringFilterInput>;
-  provider?: InputMaybe<StringFilterInput>;
-  provider_metadata?: InputMaybe<JsonFilterInput>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  size?: InputMaybe<FloatFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-  url?: InputMaybe<StringFilterInput>;
-  width?: InputMaybe<IntFilterInput>;
+  readonly alternativeText?: InputMaybe<StringFilterInput>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<UploadFileFiltersInput>>>;
+  readonly caption?: InputMaybe<StringFilterInput>;
+  readonly createdAt?: InputMaybe<DateTimeFilterInput>;
+  readonly documentId?: InputMaybe<IdFilterInput>;
+  readonly ext?: InputMaybe<StringFilterInput>;
+  readonly formats?: InputMaybe<JsonFilterInput>;
+  readonly hash?: InputMaybe<StringFilterInput>;
+  readonly height?: InputMaybe<IntFilterInput>;
+  readonly mime?: InputMaybe<StringFilterInput>;
+  readonly name?: InputMaybe<StringFilterInput>;
+  readonly not?: InputMaybe<UploadFileFiltersInput>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<UploadFileFiltersInput>>>;
+  readonly previewUrl?: InputMaybe<StringFilterInput>;
+  readonly provider?: InputMaybe<StringFilterInput>;
+  readonly provider_metadata?: InputMaybe<JsonFilterInput>;
+  readonly publishedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly size?: InputMaybe<FloatFilterInput>;
+  readonly updatedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly url?: InputMaybe<StringFilterInput>;
+  readonly width?: InputMaybe<IntFilterInput>;
 };
 
 export type UsersPermissionsCreateRolePayload = {
-  __typename?: 'UsersPermissionsCreateRolePayload';
-  ok: Scalars['Boolean']['output'];
+  readonly __typename?: 'UsersPermissionsCreateRolePayload';
+  readonly ok: Scalars['Boolean']['output'];
 };
 
 export type UsersPermissionsDeleteRolePayload = {
-  __typename?: 'UsersPermissionsDeleteRolePayload';
-  ok: Scalars['Boolean']['output'];
+  readonly __typename?: 'UsersPermissionsDeleteRolePayload';
+  readonly ok: Scalars['Boolean']['output'];
 };
 
 export type UsersPermissionsLoginInput = {
-  identifier: Scalars['String']['input'];
-  password: Scalars['String']['input'];
-  provider?: Scalars['String']['input'];
+  readonly identifier: Scalars['String']['input'];
+  readonly password: Scalars['String']['input'];
+  readonly provider?: Scalars['String']['input'];
 };
 
 export type UsersPermissionsLoginPayload = {
-  __typename?: 'UsersPermissionsLoginPayload';
-  jwt?: Maybe<Scalars['String']['output']>;
-  user: UsersPermissionsMe;
+  readonly __typename?: 'UsersPermissionsLoginPayload';
+  readonly jwt?: Maybe<Scalars['String']['output']>;
+  readonly user: UsersPermissionsMe;
 };
 
 export type UsersPermissionsMe = {
-  __typename?: 'UsersPermissionsMe';
-  blocked?: Maybe<Scalars['Boolean']['output']>;
-  confirmed?: Maybe<Scalars['Boolean']['output']>;
-  documentId: Scalars['ID']['output'];
-  email?: Maybe<Scalars['String']['output']>;
-  id: Scalars['ID']['output'];
-  role?: Maybe<UsersPermissionsMeRole>;
-  username: Scalars['String']['output'];
+  readonly __typename?: 'UsersPermissionsMe';
+  readonly blocked?: Maybe<Scalars['Boolean']['output']>;
+  readonly confirmed?: Maybe<Scalars['Boolean']['output']>;
+  readonly documentId: Scalars['ID']['output'];
+  readonly email?: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly role?: Maybe<UsersPermissionsMeRole>;
+  readonly username: Scalars['String']['output'];
 };
 
 export type UsersPermissionsMeRole = {
-  __typename?: 'UsersPermissionsMeRole';
-  description?: Maybe<Scalars['String']['output']>;
-  id: Scalars['ID']['output'];
-  name: Scalars['String']['output'];
-  type?: Maybe<Scalars['String']['output']>;
+  readonly __typename?: 'UsersPermissionsMeRole';
+  readonly description?: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly name: Scalars['String']['output'];
+  readonly type?: Maybe<Scalars['String']['output']>;
 };
 
 export type UsersPermissionsPasswordPayload = {
-  __typename?: 'UsersPermissionsPasswordPayload';
-  ok: Scalars['Boolean']['output'];
+  readonly __typename?: 'UsersPermissionsPasswordPayload';
+  readonly ok: Scalars['Boolean']['output'];
 };
 
 export type UsersPermissionsPermission = {
-  __typename?: 'UsersPermissionsPermission';
-  action: Scalars['String']['output'];
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  documentId: Scalars['ID']['output'];
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  role?: Maybe<UsersPermissionsRole>;
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly __typename?: 'UsersPermissionsPermission';
+  readonly action: Scalars['String']['output'];
+  readonly createdAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly documentId: Scalars['ID']['output'];
+  readonly publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly role?: Maybe<UsersPermissionsRole>;
+  readonly updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
 export type UsersPermissionsPermissionFiltersInput = {
-  action?: InputMaybe<StringFilterInput>;
-  and?: InputMaybe<Array<InputMaybe<UsersPermissionsPermissionFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  documentId?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<UsersPermissionsPermissionFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<UsersPermissionsPermissionFiltersInput>>>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  role?: InputMaybe<UsersPermissionsRoleFiltersInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly action?: InputMaybe<StringFilterInput>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<UsersPermissionsPermissionFiltersInput>>>;
+  readonly createdAt?: InputMaybe<DateTimeFilterInput>;
+  readonly documentId?: InputMaybe<IdFilterInput>;
+  readonly not?: InputMaybe<UsersPermissionsPermissionFiltersInput>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<UsersPermissionsPermissionFiltersInput>>>;
+  readonly publishedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly role?: InputMaybe<UsersPermissionsRoleFiltersInput>;
+  readonly updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
 export type UsersPermissionsPermissionRelationResponseCollection = {
-  __typename?: 'UsersPermissionsPermissionRelationResponseCollection';
-  nodes: Array<UsersPermissionsPermission>;
+  readonly __typename?: 'UsersPermissionsPermissionRelationResponseCollection';
+  readonly nodes: ReadonlyArray<UsersPermissionsPermission>;
 };
 
 export type UsersPermissionsRegisterInput = {
-  email: Scalars['String']['input'];
-  password: Scalars['String']['input'];
-  username: Scalars['String']['input'];
+  readonly email: Scalars['String']['input'];
+  readonly password: Scalars['String']['input'];
+  readonly username: Scalars['String']['input'];
 };
 
 export type UsersPermissionsRole = {
-  __typename?: 'UsersPermissionsRole';
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  documentId: Scalars['ID']['output'];
-  name: Scalars['String']['output'];
-  permissions: Array<Maybe<UsersPermissionsPermission>>;
-  permissions_connection?: Maybe<UsersPermissionsPermissionRelationResponseCollection>;
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  type?: Maybe<Scalars['String']['output']>;
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
-  users: Array<Maybe<UsersPermissionsUser>>;
-  users_connection?: Maybe<UsersPermissionsUserRelationResponseCollection>;
+  readonly __typename?: 'UsersPermissionsRole';
+  readonly createdAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly description?: Maybe<Scalars['String']['output']>;
+  readonly documentId: Scalars['ID']['output'];
+  readonly name: Scalars['String']['output'];
+  readonly permissions: ReadonlyArray<Maybe<UsersPermissionsPermission>>;
+  readonly permissions_connection?: Maybe<UsersPermissionsPermissionRelationResponseCollection>;
+  readonly publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly type?: Maybe<Scalars['String']['output']>;
+  readonly updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly users: ReadonlyArray<Maybe<UsersPermissionsUser>>;
+  readonly users_connection?: Maybe<UsersPermissionsUserRelationResponseCollection>;
 };
 
 
 export type UsersPermissionsRolePermissionsArgs = {
   filters?: InputMaybe<UsersPermissionsPermissionFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
 export type UsersPermissionsRolePermissions_ConnectionArgs = {
   filters?: InputMaybe<UsersPermissionsPermissionFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
 export type UsersPermissionsRoleUsersArgs = {
   filters?: InputMaybe<UsersPermissionsUserFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
 export type UsersPermissionsRoleUsers_ConnectionArgs = {
   filters?: InputMaybe<UsersPermissionsUserFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type UsersPermissionsRoleEntityResponseCollection = {
-  __typename?: 'UsersPermissionsRoleEntityResponseCollection';
-  nodes: Array<UsersPermissionsRole>;
-  pageInfo: Pagination;
+  readonly __typename?: 'UsersPermissionsRoleEntityResponseCollection';
+  readonly nodes: ReadonlyArray<UsersPermissionsRole>;
+  readonly pageInfo: Pagination;
 };
 
 export type UsersPermissionsRoleFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<UsersPermissionsRoleFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  description?: InputMaybe<StringFilterInput>;
-  documentId?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<UsersPermissionsRoleFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<UsersPermissionsRoleFiltersInput>>>;
-  permissions?: InputMaybe<UsersPermissionsPermissionFiltersInput>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  type?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-  users?: InputMaybe<UsersPermissionsUserFiltersInput>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<UsersPermissionsRoleFiltersInput>>>;
+  readonly createdAt?: InputMaybe<DateTimeFilterInput>;
+  readonly description?: InputMaybe<StringFilterInput>;
+  readonly documentId?: InputMaybe<IdFilterInput>;
+  readonly name?: InputMaybe<StringFilterInput>;
+  readonly not?: InputMaybe<UsersPermissionsRoleFiltersInput>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<UsersPermissionsRoleFiltersInput>>>;
+  readonly permissions?: InputMaybe<UsersPermissionsPermissionFiltersInput>;
+  readonly publishedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly type?: InputMaybe<StringFilterInput>;
+  readonly updatedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly users?: InputMaybe<UsersPermissionsUserFiltersInput>;
 };
 
 export type UsersPermissionsRoleInput = {
-  description?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  permissions?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  type?: InputMaybe<Scalars['String']['input']>;
-  users?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  readonly description?: InputMaybe<Scalars['String']['input']>;
+  readonly name?: InputMaybe<Scalars['String']['input']>;
+  readonly permissions?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
+  readonly publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly type?: InputMaybe<Scalars['String']['input']>;
+  readonly users?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
 };
 
 export type UsersPermissionsUpdateRolePayload = {
-  __typename?: 'UsersPermissionsUpdateRolePayload';
-  ok: Scalars['Boolean']['output'];
+  readonly __typename?: 'UsersPermissionsUpdateRolePayload';
+  readonly ok: Scalars['Boolean']['output'];
 };
 
 export type UsersPermissionsUser = {
-  __typename?: 'UsersPermissionsUser';
-  blocked?: Maybe<Scalars['Boolean']['output']>;
-  confirmed?: Maybe<Scalars['Boolean']['output']>;
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  documentId: Scalars['ID']['output'];
-  email: Scalars['String']['output'];
-  provider?: Maybe<Scalars['String']['output']>;
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  role?: Maybe<UsersPermissionsRole>;
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
-  username: Scalars['String']['output'];
+  readonly __typename?: 'UsersPermissionsUser';
+  readonly blocked?: Maybe<Scalars['Boolean']['output']>;
+  readonly confirmed?: Maybe<Scalars['Boolean']['output']>;
+  readonly createdAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly documentId: Scalars['ID']['output'];
+  readonly email: Scalars['String']['output'];
+  readonly provider?: Maybe<Scalars['String']['output']>;
+  readonly publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly role?: Maybe<UsersPermissionsRole>;
+  readonly updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  readonly username: Scalars['String']['output'];
 };
 
 export type UsersPermissionsUserEntityResponse = {
-  __typename?: 'UsersPermissionsUserEntityResponse';
-  data?: Maybe<UsersPermissionsUser>;
+  readonly __typename?: 'UsersPermissionsUserEntityResponse';
+  readonly data?: Maybe<UsersPermissionsUser>;
 };
 
 export type UsersPermissionsUserEntityResponseCollection = {
-  __typename?: 'UsersPermissionsUserEntityResponseCollection';
-  nodes: Array<UsersPermissionsUser>;
-  pageInfo: Pagination;
+  readonly __typename?: 'UsersPermissionsUserEntityResponseCollection';
+  readonly nodes: ReadonlyArray<UsersPermissionsUser>;
+  readonly pageInfo: Pagination;
 };
 
 export type UsersPermissionsUserFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<UsersPermissionsUserFiltersInput>>>;
-  blocked?: InputMaybe<BooleanFilterInput>;
-  confirmed?: InputMaybe<BooleanFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  documentId?: InputMaybe<IdFilterInput>;
-  email?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<UsersPermissionsUserFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<UsersPermissionsUserFiltersInput>>>;
-  provider?: InputMaybe<StringFilterInput>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  role?: InputMaybe<UsersPermissionsRoleFiltersInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-  username?: InputMaybe<StringFilterInput>;
+  readonly and?: InputMaybe<ReadonlyArray<InputMaybe<UsersPermissionsUserFiltersInput>>>;
+  readonly blocked?: InputMaybe<BooleanFilterInput>;
+  readonly confirmed?: InputMaybe<BooleanFilterInput>;
+  readonly createdAt?: InputMaybe<DateTimeFilterInput>;
+  readonly documentId?: InputMaybe<IdFilterInput>;
+  readonly email?: InputMaybe<StringFilterInput>;
+  readonly not?: InputMaybe<UsersPermissionsUserFiltersInput>;
+  readonly or?: InputMaybe<ReadonlyArray<InputMaybe<UsersPermissionsUserFiltersInput>>>;
+  readonly provider?: InputMaybe<StringFilterInput>;
+  readonly publishedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly role?: InputMaybe<UsersPermissionsRoleFiltersInput>;
+  readonly updatedAt?: InputMaybe<DateTimeFilterInput>;
+  readonly username?: InputMaybe<StringFilterInput>;
 };
 
 export type UsersPermissionsUserInput = {
-  blocked?: InputMaybe<Scalars['Boolean']['input']>;
-  confirmed?: InputMaybe<Scalars['Boolean']['input']>;
-  email?: InputMaybe<Scalars['String']['input']>;
-  password?: InputMaybe<Scalars['String']['input']>;
-  provider?: InputMaybe<Scalars['String']['input']>;
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  role?: InputMaybe<Scalars['ID']['input']>;
-  username?: InputMaybe<Scalars['String']['input']>;
+  readonly blocked?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly confirmed?: InputMaybe<Scalars['Boolean']['input']>;
+  readonly email?: InputMaybe<Scalars['String']['input']>;
+  readonly password?: InputMaybe<Scalars['String']['input']>;
+  readonly provider?: InputMaybe<Scalars['String']['input']>;
+  readonly publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  readonly role?: InputMaybe<Scalars['ID']['input']>;
+  readonly username?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type UsersPermissionsUserRelationResponseCollection = {
-  __typename?: 'UsersPermissionsUserRelationResponseCollection';
-  nodes: Array<UsersPermissionsUser>;
+  readonly __typename?: 'UsersPermissionsUserRelationResponseCollection';
+  readonly nodes: ReadonlyArray<UsersPermissionsUser>;
 };
 
 export type CreateCommentMutationVariables = Exact<{
@@ -1568,75 +1568,75 @@ export type CreateCommentMutationVariables = Exact<{
 }>;
 
 
-export type CreateCommentMutation = { __typename?: 'Mutation', createComment?: { __typename?: 'Comment', documentId: string, content: string, authorName: string, authorEmail: string, approved?: boolean | null } | null };
+export type CreateCommentMutation = { readonly __typename?: 'Mutation', readonly createComment?: { readonly __typename?: 'Comment', readonly documentId: string, readonly content: string, readonly authorName: string, readonly authorEmail: string, readonly approved?: boolean | null } | null };
 
 export type CreateNewsletterSubscriptionMutationVariables = Exact<{
   data: NewsletterInput;
 }>;
 
 
-export type CreateNewsletterSubscriptionMutation = { __typename?: 'Mutation', createNewsletter?: { __typename?: 'Newsletter', documentId: string, email: string } | null };
+export type CreateNewsletterSubscriptionMutation = { readonly __typename?: 'Mutation', readonly createNewsletter?: { readonly __typename?: 'Newsletter', readonly documentId: string, readonly email: string } | null };
 
 export type GetAuthorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAuthorsQuery = { __typename?: 'Query', authors: Array<{ __typename?: 'Author', documentId: string, name: string, slug: string, bio?: string | null } | null> };
+export type GetAuthorsQuery = { readonly __typename?: 'Query', readonly authors: ReadonlyArray<{ readonly __typename?: 'Author', readonly documentId: string, readonly name: string, readonly slug: string, readonly bio?: string | null } | null> };
 
 export type GetAuthorBySlugQueryVariables = Exact<{
   slug: Scalars['String']['input'];
 }>;
 
 
-export type GetAuthorBySlugQuery = { __typename?: 'Query', authors: Array<{ __typename?: 'Author', documentId: string, name: string, slug: string, Email: string, bio?: string | null } | null> };
+export type GetAuthorBySlugQuery = { readonly __typename?: 'Query', readonly authors: ReadonlyArray<{ readonly __typename?: 'Author', readonly documentId: string, readonly name: string, readonly slug: string, readonly Email: string, readonly bio?: string | null } | null> };
 
 export type GetCategoriesQueryVariables = Exact<{
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
 }>;
 
 
-export type GetCategoriesQuery = { __typename?: 'Query', categories: Array<{ __typename?: 'Category', documentId: string, name: string, slug: string, description?: string | null } | null> };
+export type GetCategoriesQuery = { readonly __typename?: 'Query', readonly categories: ReadonlyArray<{ readonly __typename?: 'Category', readonly documentId: string, readonly name: string, readonly slug: string, readonly description?: string | null } | null> };
 
 export type GetCategoryBySlugQueryVariables = Exact<{
   slug: Scalars['String']['input'];
 }>;
 
 
-export type GetCategoryBySlugQuery = { __typename?: 'Query', categories: Array<{ __typename?: 'Category', documentId: string, name: string, slug: string, description?: string | null } | null> };
+export type GetCategoryBySlugQuery = { readonly __typename?: 'Query', readonly categories: ReadonlyArray<{ readonly __typename?: 'Category', readonly documentId: string, readonly name: string, readonly slug: string, readonly description?: string | null } | null> };
 
 export type GetPostsQueryVariables = Exact<{
   pagination?: InputMaybe<PaginationArg>;
   filters?: InputMaybe<PostFiltersInput>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
 }>;
 
 
-export type GetPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', documentId: string, title: string, slug: string, content: string, published_date?: any | null, coverImage?: { __typename?: 'UploadFile', documentId: string, url: string, alternativeText?: string | null, width?: number | null, height?: number | null } | null, author?: { __typename?: 'Author', documentId: string, name: string, slug: string, avatar?: { __typename?: 'UploadFile', documentId: string, url: string } | null } | null, category?: { __typename?: 'Category', documentId: string, name: string, slug: string } | null, tags: Array<{ __typename?: 'Tag', documentId: string, name: string, slug: string } | null> } | null> };
+export type GetPostsQuery = { readonly __typename?: 'Query', readonly posts: ReadonlyArray<{ readonly __typename?: 'Post', readonly documentId: string, readonly title: string, readonly slug: string, readonly content: string, readonly published_date?: unknown | null, readonly coverImage?: { readonly __typename?: 'UploadFile', readonly documentId: string, readonly url: string, readonly alternativeText?: string | null, readonly width?: number | null, readonly height?: number | null } | null, readonly author?: { readonly __typename?: 'Author', readonly documentId: string, readonly name: string, readonly slug: string, readonly avatar?: { readonly __typename?: 'UploadFile', readonly documentId: string, readonly url: string } | null } | null, readonly category?: { readonly __typename?: 'Category', readonly documentId: string, readonly name: string, readonly slug: string } | null, readonly tags: ReadonlyArray<{ readonly __typename?: 'Tag', readonly documentId: string, readonly name: string, readonly slug: string } | null> } | null> };
 
 export type GetPostBySlugQueryVariables = Exact<{
   slug: Scalars['String']['input'];
 }>;
 
 
-export type GetPostBySlugQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', documentId: string, title: string, slug: string, content: string, published_date?: any | null, coverImage?: { __typename?: 'UploadFile', documentId: string, url: string, alternativeText?: string | null, width?: number | null, height?: number | null } | null, author?: { __typename?: 'Author', documentId: string, name: string, slug: string, Email: string, bio?: string | null, avatar?: { __typename?: 'UploadFile', documentId: string, url: string } | null } | null, category?: { __typename?: 'Category', documentId: string, name: string, slug: string, description?: string | null } | null, tags: Array<{ __typename?: 'Tag', documentId: string, name: string, slug: string } | null>, comments: Array<{ __typename?: 'Comment', documentId: string, content: string, authorName: string, approved?: boolean | null, createdAt?: any | null } | null> } | null> };
+export type GetPostBySlugQuery = { readonly __typename?: 'Query', readonly posts: ReadonlyArray<{ readonly __typename?: 'Post', readonly documentId: string, readonly title: string, readonly slug: string, readonly content: string, readonly published_date?: unknown | null, readonly coverImage?: { readonly __typename?: 'UploadFile', readonly documentId: string, readonly url: string, readonly alternativeText?: string | null, readonly width?: number | null, readonly height?: number | null } | null, readonly author?: { readonly __typename?: 'Author', readonly documentId: string, readonly name: string, readonly slug: string, readonly Email: string, readonly bio?: string | null, readonly avatar?: { readonly __typename?: 'UploadFile', readonly documentId: string, readonly url: string } | null } | null, readonly category?: { readonly __typename?: 'Category', readonly documentId: string, readonly name: string, readonly slug: string, readonly description?: string | null } | null, readonly tags: ReadonlyArray<{ readonly __typename?: 'Tag', readonly documentId: string, readonly name: string, readonly slug: string } | null>, readonly comments: ReadonlyArray<{ readonly __typename?: 'Comment', readonly documentId: string, readonly content: string, readonly authorName: string, readonly approved?: boolean | null, readonly createdAt?: string | null } | null> } | null> };
 
 export type GetPostSlugsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPostSlugsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', documentId: string, slug: string } | null> };
+export type GetPostSlugsQuery = { readonly __typename?: 'Query', readonly posts: ReadonlyArray<{ readonly __typename?: 'Post', readonly documentId: string, readonly slug: string } | null> };
 
 export type GetTagsQueryVariables = Exact<{
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
 }>;
 
 
-export type GetTagsQuery = { __typename?: 'Query', tags: Array<{ __typename?: 'Tag', documentId: string, name: string, slug: string } | null> };
+export type GetTagsQuery = { readonly __typename?: 'Query', readonly tags: ReadonlyArray<{ readonly __typename?: 'Tag', readonly documentId: string, readonly name: string, readonly slug: string } | null> };
 
 export type GetTagBySlugQueryVariables = Exact<{
   slug: Scalars['String']['input'];
 }>;
 
 
-export type GetTagBySlugQuery = { __typename?: 'Query', tags: Array<{ __typename?: 'Tag', documentId: string, name: string, slug: string } | null> };
+export type GetTagBySlugQuery = { readonly __typename?: 'Query', readonly tags: ReadonlyArray<{ readonly __typename?: 'Tag', readonly documentId: string, readonly name: string, readonly slug: string } | null> };
 
 
 export const CreateCommentDocument = gql`

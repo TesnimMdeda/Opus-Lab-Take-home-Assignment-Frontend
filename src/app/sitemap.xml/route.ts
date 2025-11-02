@@ -4,6 +4,9 @@ import {
   GetPostsDocument,
   GetCategoriesDocument,
   GetTagsDocument,
+  Category,
+  Post,
+  Tag,
 } from "@/graphql/generated/graphql";
 import { SITE_URL } from "@/lib/utils";
 
@@ -34,7 +37,7 @@ export async function GET() {
       changefreq: "daily",
       priority: 1.0,
     },
-    ...posts.map((post: any) => ({
+    ...posts.map((post: Post) => ({
       url: `${SITE_URL}/posts/${post.slug}`,
       lastmod: post.updatedAt
         ? new Date(post.updatedAt).toISOString()
@@ -42,7 +45,7 @@ export async function GET() {
       changefreq: "weekly",
       priority: 0.8,
     })),
-    ...categories.map((cat: any) => ({
+    ...categories.map((cat: Category) => ({
       url: `${SITE_URL}/categories/${cat.slug}`,
       lastmod: cat.updatedAt
         ? new Date(cat.updatedAt).toISOString()
@@ -50,7 +53,7 @@ export async function GET() {
       changefreq: "weekly",
       priority: 0.6,
     })),
-    ...tags.map((tag: any) => ({
+    ...tags.map((tag: Tag) => ({
       url: `${SITE_URL}/tags/${tag.slug}`,
       lastmod: tag.updatedAt
         ? new Date(tag.updatedAt).toISOString()

@@ -17,6 +17,15 @@ const config: CodegenConfig = {
         withHOC: false,
         skipTypename: false,
         enumsAsTypes: true,
+        maybeValue: "T | null",
+        strict: true,
+        defaultScalarType: "unknown",
+        immutableTypes: true,
+        scalars: {
+          DateTime: "string",
+          JSON: "Record<string, unknown>",
+          Upload: "File",
+        },
       },
     },
     "src/graphql/generated/graphql.schema.json": {
