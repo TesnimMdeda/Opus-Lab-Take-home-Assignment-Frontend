@@ -26,9 +26,9 @@ export async function GET() {
     query: GetTagsDocument,
   });
 
-  const posts = postsData?.posts ?? [];
-  const categories = categoriesData?.categories ?? [];
-  const tags = tagsData?.tags ?? [];
+  const posts: Post[] = postsData?.posts ?? [];
+  const categories: Category[] = categoriesData?.categories ?? [];
+  const tags: Tag[] = tagsData?.tags ?? [];
 
   const urls = [
     {
@@ -37,7 +37,7 @@ export async function GET() {
       changefreq: "daily",
       priority: 1.0,
     },
-    ...posts.map((post: Post) => ({
+    ...posts.map((post) => ({
       url: `${SITE_URL}/posts/${post.slug}`,
       lastmod: post.updatedAt
         ? new Date(post.updatedAt).toISOString()
@@ -45,7 +45,7 @@ export async function GET() {
       changefreq: "weekly",
       priority: 0.8,
     })),
-    ...categories.map((cat: Category) => ({
+    ...categories.map((cat) => ({
       url: `${SITE_URL}/categories/${cat.slug}`,
       lastmod: cat.updatedAt
         ? new Date(cat.updatedAt).toISOString()
@@ -53,7 +53,7 @@ export async function GET() {
       changefreq: "weekly",
       priority: 0.6,
     })),
-    ...tags.map((tag: Tag) => ({
+    ...tags.map((tag) => ({
       url: `${SITE_URL}/tags/${tag.slug}`,
       lastmod: tag.updatedAt
         ? new Date(tag.updatedAt).toISOString()
