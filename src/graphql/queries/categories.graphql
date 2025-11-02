@@ -1,0 +1,17 @@
+query GetCategories($sort: [String]) {
+  categories(sort: $sort) {
+    documentId
+    name
+    slug
+    description
+  }
+}
+
+query GetCategoryBySlug($slug: String!) {
+  categories(filters: { slug: { eq: $slug } }) {
+    documentId
+    name
+    slug
+    description
+  }
+}

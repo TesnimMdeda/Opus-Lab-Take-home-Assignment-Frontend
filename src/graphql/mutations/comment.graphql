@@ -1,0 +1,9 @@
+mutation CreateComment($data: CommentInput!) {
+  createComment(data: $data) {
+    documentId
+    content
+    authorName
+    authorEmail
+    approved
+  }
+}

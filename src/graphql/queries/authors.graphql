@@ -1,0 +1,18 @@
+query GetAuthors {
+  authors {
+    documentId
+    name
+    slug
+    bio
+  }
+}
+
+query GetAuthorBySlug($slug: String!) {
+  authors(filters: { slug: { eq: $slug } }) {
+    documentId
+    name
+    slug
+    Email
+    bio
+  }
+}

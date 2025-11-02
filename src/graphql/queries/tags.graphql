@@ -1,0 +1,15 @@
+query GetTags($sort: [String]) {
+  tags(sort: $sort) {
+    documentId
+    name
+    slug
+  }
+}
+
+query GetTagBySlug($slug: String!) {
+  tags(filters: { slug: { eq: $slug } }) {
+    documentId
+    name
+    slug
+  }
+}

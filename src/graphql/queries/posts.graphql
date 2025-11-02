@@ -1,0 +1,96 @@
+query GetPosts(
+  $pagination: PaginationArg
+  $filters: PostFiltersInput
+  $sort: [String]
+) {
+  posts(
+    pagination: $pagination
+    filters: $filters
+    sort: $sort
+  ) {
+    documentId
+    title
+    slug
+    content
+    published_date
+    coverImage {
+      documentId
+      url
+      alternativeText
+      width
+      height
+    }
+    author {
+      documentId
+      name
+      slug
+      avatar {
+        documentId
+        url
+      }
+    }
+    category {
+      documentId
+      name
+      slug
+    }
+    tags {
+      documentId
+      name
+      slug
+    }
+  }
+}
+
+query GetPostBySlug($slug: String!) {
+  posts(filters: { slug: { eq: $slug } }) {
+    documentId
+    title
+    slug
+    content
+    published_date
+    coverImage {
+      documentId
+      url
+      alternativeText
+      width
+      height
+    }
+    author {
+      documentId
+      name
+      slug
+      Email
+      bio
+      avatar {
+        documentId
+        url
+      }
+    }
+    category {
+      documentId
+      name
+      slug
+      description
+    }
+    tags {
+      documentId
+      name
+      slug
+    }
+    comments {
+      documentId
+      content
+      authorName
+      approved
+      createdAt
+    }
+  }
+}
+
+query GetPostSlugs {
+  posts(pagination: { limit: 1000 }) {
+    documentId
+    slug
+  }
+}

@@ -1,0 +1,6 @@
+mutation CreateNewsletterSubscription($data: NewsletterInput!) {
+  createNewsletter(data: $data) {
+    documentId
+    email
+  }
+}
