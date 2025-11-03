@@ -1,172 +1,169 @@
-# 🚀 Strapi CMS — Blog Content Management System
+# 🧭 Next.js Blog Frontend — Powered by Strapi GraphQL
 
-A modern **Strapi v4** setup for managing a blog backend, complete with a **TypeScript seeder**, **webhook integration** to Next.js, and **production deployment** via Railway.
-
----
-
-## 🧠 Overview
-
-This repository contains the **Strapi CMS** that powers your blog.  
-It includes:
-- 🧑‍💻 Author, Category, Tag, Post, Comment & Newsletter content types
-- 🌱 Seeder script with full markdown demo content
-- 🔗 Webhook integration for automatic frontend rebuilds
-- ☁️ Deployment-ready setup for Railway & Vercel
+A modern **Next.js (App Router, TypeScript)** frontend connected to a **Strapi CMS backend**.  
+Includes GraphQL (Apollo Client), typed data fetching, SEO setup, and full content publishing flow.
 
 ---
 
-## ⚙️ Installation & Development
+## 🚀 Getting Started
 
-### 1. Clone the repository
+### 1️⃣ Install dependencies
 ```bash
-git clone https://github.com/yourusername/your-strapi-cms.git
-cd your-strapi-cms
-2. Install dependencies
-bash
-Copy code
 npm install
 # or
 yarn install
-3. Run the Strapi server
-Development mode
-Auto-reload enabled.
-
-bash
-Copy code
-npm run develop
 # or
-yarn develop
-Production mode
-Auto-reload disabled.
-
-bash
-Copy code
-npm run start
+pnpm install
 # or
-yarn start
-Build admin panel
+bun install
+2️⃣ Set up environment variables
+Create a .env file at the root of your project using the following template:
+
+env
+Copy code
+
+# 🌐 Strapi Backend URLs
+NEXT_PUBLIC_STRAPI_API_URL=https://opus-production-3e99.up.railway.app
+NEXT_PUBLIC_STRAPI_GRAPHQL_URL=https://opus-production-3e99.up.railway.app/graphql
+NEXT_PUBLIC_SITE_URL=https://opus-lab-take-home-assignment-front-taupe.vercel.app
+
+# 🔐 API & Webhook Secrets
+NEXT_PUBLIC_STRAPI_API_TOKEN=your_strapi_api_token_here
+NEXT_PUBLIC_REVALIDATE_SECRET=your_revalidate_secret_here
+
+💡 Tip: Always commit a .env.example (not your real .env) for easy onboarding.
+
+3️⃣ Generate GraphQL Types
+To enable typed queries and mutations, run:
+
 bash
 Copy code
-npm run build
+npm run codegen
+This uses your codegen.yml (or graphql-codegen.config.ts) setup to:
+
+Fetch the GraphQL schema from Strapi
+
+Generate TypeScript definitions for queries, mutations, and fragments
+
+Update files in your /graphql/ or /generated/ folder
+
+🧬 Code generation ensures type safety and autocomplete in your IDE when writing GraphQL queries.
+
+4️⃣ Run the development server
+bash
+Copy code
+npm run dev
 # or
-yarn build
-🌱 Strapi Seeder Script (TypeScript)
-Populate your database with demo content.
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+Then open http://localhost:3000 to see your app.
 
-▶️ Run with:
+🌍 Hosted Links
+
+Resource	URL
+
+🏠 Frontend	https://opus-lab-take-home-assignment-front-taupe.vercel.app
+⚙️ Strapi Admin	https://opus-production-3e99.up.railway.app/admin
+🗺️ Sitemap	/sitemap.xml
+📰 RSS Feed	/rss.xml
+
+🧠 Project Features
+
+🏗️ Architecture
+
+Next.js App Router + TypeScript
+
+Apollo Client (GraphQL) with auto-generated types
+
+Zod for runtime validation and type safety
+
+📰 Blog Features
+Home (latest posts)
+
+Post page (markdown + media)
+
+Category, Tag & Author pages
+
+Search and pagination
+
+Comment and Newsletter forms stored in Strapi
+
+💌 Forms
+Built with React Hook Form + Zod
+
+Submits data to Strapi CMS
+
+⚙️ Data Fetching
+GraphQL queries + mutations with typed responses
+
+Error & loading handling
+
+Optimized caching via Apollo
+
+🧩 SEO & Metadata
+Dynamic meta & OG tags
+
+Auto-generated sitemap.xml and rss.xml
+
+⚡ Performance & UX
+Optimized media with next/image
+
+Reading-time estimation
+
+Pagination & infinite scroll
+
+Dark Mode (Context or Zustand)
+
+ISR (Incremental Static Regeneration) + Strapi Webhooks
+
+🧰 Technologies Used
+Category	Tools
+Framework	Next.js
+Language	TypeScript
+CMS	Strapi
+API	GraphQL + Apollo Client
+Codegen	GraphQL Code Generator
+Validation	Zod
+Forms	React Hook Form
+Styling	Tailwind CSS
+State	Context / Zustand
+Deployment	Vercel
+
+🛠️ Editing & Development Notes
+You can start editing the main page by modifying:
+
 bash
 Copy code
-npx ts-node seed.ts
-Or add this to your package.json:
+app/page.tsx
+The page auto-updates as you edit.
 
-json
-Copy code
-"scripts": {
-  "seed": "ts-node seed.ts"
-}
-🧩 Seeder Content
-Type	Count	Description
-👩‍💻 Authors	2	Full bio + slug + email
-📚 Categories	3	Tech, Design, Business
-🏷️ Tags	5	JavaScript, React, Next.js, etc.
-📝 Posts	8	Full markdown content + images
-💬 Comments	Many	Linked to posts and users
-📬 Newsletter	Many	Simple subscription model
-
-⚙️ Environment Variables (.env)
-.env.exemple 
-Copy code
-
-HOST=0.0.0.0
-PORT=1337
-
-# 🔐 Security & Secrets
-ADMIN_JWT_SECRET=your_admin_jwt_secret_here
-API_TOKEN_SALT=your_api_token_salt_here
-JWT_SECRET=your_jwt_secret_here
-APP_KEYS=your_app_key_1,your_app_key_2,your_app_key_3,your_app_key_4
-
-🟢 Hosted Admin Panel:
-https://opus-production-3e99.up.railway.app/admin
-
-🔁 Webhook Configuration (Strapi → Next.js)
-Set up a webhook to automatically rebuild your frontend whenever content changes.
-
-📡 Steps
-Go to Settings → Webhooks → Create Webhook
-
-Fill in the details below:
-
-Field	Value
-Name	Rebuild Frontend
-URL	https://opus-lab-take-home-assignment-front-taupe.vercel.app/api/revalidate
-Events	Entry publish, update, unpublish (Posts, Categories)
-Secret Header	x-webhook-secret
-Secret Value	REBUILD_TOKEN_123
-
-💡 Make sure your Next.js app has this same secret in its .env file.
-
-🧭 Data Model Diagram
-The system includes the following entities:
-
-Author
-
-Category
-
-Tag
-
-Post
-
-Comment
-
-User
-
-Newsletter
-
-Entity Relationships
-Author → Post → 1..*
-
-Category → Post → 1..*
-
-Post ↔ Tag → *..*
-
-Post → Comment → 1..*
-
-User → Comment → 1..*
-
-Newsletter → standalone
-
-🖼️ Visual Data Model (ERD)
-(Add your generated diagram image here)
-
-md
-Copy code
-![Data Model Diagram](./path-to-your-diagram.png)
-🚀 Deployment
-Strapi supports multiple deployment methods.
-
-Railway (Recommended)
-bash
-Copy code
-yarn strapi deploy
-📘 Learn more: Deployment Docs
+The project also uses next/font
+to automatically load Geist — a clean, modern Vercel font family.
 
 📚 Learn More
-📖 Strapi Documentation
+Next.js Documentation
 
-🎓 Tutorials
+Learn Next.js
 
-📰 Strapi Blog
+Apollo Client Docs
 
-🧩 Changelog
+GraphQL Codegen Docs
 
-💡 Resource Center
+Strapi GraphQL Plugin
 
-✨ Community & Contribution
-💬 Discord — Join the Strapi community
+☁️ Deployment
+Deploy easily using Vercel, the creators of Next.js:
 
-💡 Forum — Ask questions and share ideas
+👉 Deploy on Vercel
 
-🌟 Awesome Strapi — Curated resources
-
-<sub>🤫 Psst… Strapi is hiring!</sub>
+flowchart TD
+    A[🧑 User visits site] --> B[🌐 Next.js (Frontend)]
+    B -->|Fetch content via GraphQL| C[(🧩 Strapi CMS)]
+    C -->|GraphQL API Response| B
+    C -->|Publish / Update / Unpublish| D[⚙️ Strapi Webhook]
+    D -->|Triggers revalidation| E[🚀 Next.js Revalidate API Route]
+    E -->|Regenerates static pages| B
+    B -->|Serve fresh content| A
