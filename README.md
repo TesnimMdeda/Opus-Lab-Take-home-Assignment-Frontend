@@ -61,14 +61,15 @@ pnpm dev
 bun dev
 Then open http://localhost:3000 to see your app.
 
-🌍 Hosted Links
+## 🌍 Hosted Links
 
-Resource	URL
+| Resource | URL |
+|-----------|-----|
+| 🏠 **Frontend** | [https://opus-lab-take-home-assignment-front-taupe.vercel.app](https://opus-lab-take-home-assignment-front-taupe.vercel.app) |
+| ⚙️ **Strapi Admin** | [https://opus-production-3e99.up.railway.app/admin](https://opus-production-3e99.up.railway.app/admin) |
+| 🗺️ **Sitemap** | [https://opus-lab-take-home-assignment-front-taupe.vercel.app/sitemap.xml](https://opus-lab-take-home-assignment-front-taupe.vercel.app/sitemap.xml) |
+| 📰 **RSS Feed** | [https://opus-lab-take-home-assignment-front-taupe.vercel.app/rss.xml](https://opus-lab-take-home-assignment-front-taupe.vercel.app/rss.xml) |
 
-🏠 Frontend	https://opus-lab-take-home-assignment-front-taupe.vercel.app
-⚙️ Strapi Admin	https://opus-production-3e99.up.railway.app/admin
-🗺️ Sitemap	/sitemap.xml
-📰 RSS Feed	/rss.xml
 
 🧠 Project Features
 
@@ -158,12 +159,3 @@ Strapi GraphQL Plugin
 Deploy easily using Vercel, the creators of Next.js:
 
 👉 Deploy on Vercel
-
-flowchart TD
-    A[🧑 User visits site] --> B[🌐 Next.js (Frontend)]
-    B -->|Fetch content via GraphQL| C[(🧩 Strapi CMS)]
-    C -->|GraphQL API Response| B
-    C -->|Publish / Update / Unpublish| D[⚙️ Strapi Webhook]
-    D -->|Triggers revalidation| E[🚀 Next.js Revalidate API Route]
-    E -->|Regenerates static pages| B
-    B -->|Serve fresh content| A
