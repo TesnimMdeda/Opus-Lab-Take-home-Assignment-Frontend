@@ -133,7 +133,7 @@ Then open [http://localhost:3000](http://localhost:3000) to see your app.
 
 - Home (latest posts)
 - Post page (markdown + media)
-- Category, Tag & Author pages
+- Category, Tag & Author filters
 - Search and pagination
 - Comment and Newsletter forms stored in Strapi
 
