@@ -7,7 +7,6 @@ Includes GraphQL (Apollo Client), typed data fetching, SEO setup, and full conte
 
 ## 📊 Architecture Overview
 
-![Architecture Diagram](/architecture-diagram.png)
 
 ```
 ┌─────────────────────┐
