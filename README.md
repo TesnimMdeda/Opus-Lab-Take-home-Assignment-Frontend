@@ -53,12 +53,6 @@ Includes GraphQL (Apollo Client), typed data fetching, SEO setup, and full conte
 
 ```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
 ```
 
 ### 2️⃣ Set up environment variables
