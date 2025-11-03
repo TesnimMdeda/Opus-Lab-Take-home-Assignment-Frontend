@@ -1,7 +1,7 @@
 import { STRAPI_URL } from "./utils";
 
 export function getStrapiURL(path: string = "") {
-  return `${STRAPI_URL || "http://localhost:1337"}${path}`;
+  return `${STRAPI_URL}${path}`;
 }
 
 export function getStrapiMedia(url: string | null | undefined) {
