@@ -61,15 +61,14 @@ pnpm dev
 bun dev
 Then open http://localhost:3000 to see your app.
 
-## 🌍 Hosted Links
+🌍 Hosted Links
 
-| Resource | URL |
-|-----------|-----|
-| 🏠 **Frontend** | [https://opus-lab-take-home-assignment-front-taupe.vercel.app](https://opus-lab-take-home-assignment-front-taupe.vercel.app) |
-| ⚙️ **Strapi Admin** | [https://opus-production-3e99.up.railway.app/admin](https://opus-production-3e99.up.railway.app/admin) |
-| 🗺️ **Sitemap** | [https://opus-lab-take-home-assignment-front-taupe.vercel.app/sitemap.xml](https://opus-lab-take-home-assignment-front-taupe.vercel.app/sitemap.xml) |
-| 📰 **RSS Feed** | [https://opus-lab-take-home-assignment-front-taupe.vercel.app/rss.xml](https://opus-lab-take-home-assignment-front-taupe.vercel.app/rss.xml) |
+Resource	URL
 
+🏠 Frontend	https://opus-lab-take-home-assignment-front-taupe.vercel.app
+⚙️ Strapi Admin	https://opus-production-3e99.up.railway.app/admin
+🗺️ Sitemap	/sitemap.xml
+📰 RSS Feed	/rss.xml
 
 🧠 Project Features
 
