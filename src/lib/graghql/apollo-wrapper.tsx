@@ -9,7 +9,7 @@ function makeClient() {
   return new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
-      uri: process.env.STRAPI_GRAPHQL_URL,
+      uri: process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_URL,
       headers: {
         Authorization: `Bearer ${STRAPI_TOKEN}`,
       },
