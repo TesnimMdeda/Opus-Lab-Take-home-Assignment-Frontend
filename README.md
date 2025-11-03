@@ -98,12 +98,6 @@ This uses your `codegen.yml` (or `graphql-codegen.config.ts`) setup to:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Then open [http://localhost:3000](http://localhost:3000) to see your app.
@@ -158,7 +152,7 @@ Then open [http://localhost:3000](http://localhost:3000) to see your app.
 - Optimized media with `next/image`
 - Reading-time estimation
 - Pagination & infinite scroll
-- Dark Mode (Context or Zustand)
+- Dark Mode
 - ISR (Incremental Static Regeneration) + Strapi Webhooks
 
 ---
@@ -175,7 +169,6 @@ Then open [http://localhost:3000](http://localhost:3000) to see your app.
 | Validation | Zod |
 | Forms | React Hook Form |
 | Styling | Tailwind CSS |
-| State | Context / Zustand |
 | Deployment | Vercel |
 
 ---
