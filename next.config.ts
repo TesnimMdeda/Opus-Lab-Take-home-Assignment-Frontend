@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         port: "1337",
         pathname: "/uploads/**",
       },
+      {
+        protocol: "https",
+        hostname: "opus-production-3e99.up.railway.app",
+        pathname: "/uploads/**",
+      },
     ],
   },
 };
